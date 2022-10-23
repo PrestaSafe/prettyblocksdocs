@@ -1,0 +1,154 @@
+# Intro
+Afin d'étendre au mieux les fonctionnalités de PrettyBlocks, nous avons implémentés
+certains hooks. 
+
+## Register Hooks (ActionRegisterBlock)
+
+En greffant votre module sur le hook **ActionRegisterBlock** vous pourrez simplement rajouter vos blocs. 
+
+```php
+public function hookActionRegisterBlock()
+{
+    $blocks = [];
+    $blocks[] = [
+        'name' => 'Fake block',
+        'description' => 'Description of your block',
+        'code' => 'fake_block', // required must be uniq
+        'icon' => 'StarIcon', // https://heroicons.com V2
+        'need_reload' => true, // reload iframe after save
+        'templates' => [
+            'default' =>  'module:'.$this->name.'/views/templates/block/default.tpl'
+        ],
+        'config' => [
+            'fields' => [
+                // ... array of fields
+            ]
+        ],
+        'repeater' => [
+            'name' => 'Element repeated',
+            'nameFrom' => 'field name',
+            'groups' => [
+                // ... array of fields
+            ]
+        ]
+
+    ]
+
+    return $blocks;
+}
+```
+
+## Register Settings (ActionRegisterThemeSettings)
+
+Le hook **ActionRegisterThemeSettings** vous permettra d'enregistrer des paramètres généraux pour votre thème. 
+Pour enregistrer des paramètres, vous devez retourner un tableau de [Champs](/get-started/fields-available) 
+Seul le paramètre <code style="color:red">tab</code> vous permettra d'ajouter votre paramètres dans un tab existant, ou de le créer si il n'existe pas. 
+ex: ` 'tab' => 'design' ` placera le paramètre dans un onglet `Design`
+```php
+public function hookActionRegisterThemeSettings()
+{
+    return [
+        'settings_name' => [
+            'tab' => 'design',
+            'type' => 'color',
+            'default' => '#000000',
+            'label' => 'Change your color'
+        ],
+        'select' => [
+            'tab' => 'TEST',
+            'type' => 'select',
+            'label' => 'Select field', 
+            // 'default' => '2',
+            'choices' => [
+                '1' => 'Value 1',
+                '2' => 'Value 2',
+                '3' => 'Value 3',
+            ]
+        ],
+        'radio_group' => [
+            'tab' => 'TEST',
+            'type' => 'radio_group',
+            'label' => 'Choose a value', 
+            'default' => '3',
+            'choices' => [
+                '1' => 'Radio 1',
+                '2' => 'Radio 2',
+                '3' => 'Radio 3',
+            ]
+        ],
+        'settings_name_radio' => [
+            'tab' => 'design',
+            'type' => 'radio',
+            'default' => false,
+            'label' => 'Add this option'
+        ],
+        'settings_name_textarea' => [
+            'tab' => 'Custom tabs !',
+            'type' => 'textarea',
+            'default' => 'Hello you !',
+            'label' => 'type textarea'
+        ],
+        'new_logo' => [
+            'tab' => 'design',
+            'type' => 'fileupload',
+            'label' => 'File upload',
+            'path' => '$/fakemodule/views/images/test/',
+            'default' => [
+                'imgs' => [
+                    ['url' => 'https://via.placeholder.com/141x180'],
+                ]
+            ],
+        ]
+    ];
+}
+```
+
+
+## Extend block (beforeRendering{BlockCode})
+
+Afin d'étendre les données de votre block, vous pouvez rajouter des données via ce hook: 
+Exemple pour un block aillant pour code: `block_category_products`
+un hook est exécuté avec le code du bloc en camelCase:  `hookbeforeRenderingblockCategoryProducts`
+
+Vous pouvez utiliser toutes les données de votre bloc dans le `$params['block']`
+```php 
+public function hookbeforeRenderingblockCategoryProducts($params)
+{
+    $settings = $params['block']['settings'];
+    if($settings)
+    {
+        if(!isset($settings['category']['id']))
+        {
+            return false; 
+        }
+        $id_category = (int)$settings['category']['id'];
+        
+        // $block.extra.products 
+        return ['products' => $this->getProducts($id_category)];
+    }
+    return false;
+}
+
+```
+
+Toutes les clés retournés pourront être utilisé dans la variable `$block.extra` sur le front office. 
+Résulat de notre exemple: `$block.extra.products` retournera un tableau de produits. 
+
+
+## Extends Templates (actionExtendBlockTemplate{BlockCode})
+
+Pourquoi devoir refaire un bloc ou un module afin de modifier un simple affichage ? 
+Un module peut rajouter un ou plusieurs templates en fonction d'un bloc. 
+
+Comme pour l'exemple précédent, pour un bloc aillant le code `block_category_products`
+vous pouvez rajouter un ou plusieurs templates pour ce dernier: 
+
+```php
+ public function hookactionExtendBlockTemplateBlockCategoryProducts($params)
+{
+    return [
+        'override1' => 'module:'.$this->name.'/views/templates/blocks/template1.tpl',
+        'override2' => 'module:'.$this->name.'/views/templates/blocks/template2.tpl',
+    ];
+}
+```
