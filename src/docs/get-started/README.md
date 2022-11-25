@@ -1,7 +1,10 @@
 # Hello world 
 
-Prettyblocks est un tout nouveau system de création de contenu par système de blocs. 
+Prettyblocks est un tout nouveau system de création de contenu par système de blocs conçu spécifiquement pour **PrestaShop**.
+<br> 
 Nous allons voir dans cette documentation comment utiliser ce système en toute simplicité. 
+
+<img :src="$withBase('/hello-prettyblocks.png')" alt="foo" class="width: 100%">
 
 ## Concept
 

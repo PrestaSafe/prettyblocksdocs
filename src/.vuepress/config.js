@@ -36,10 +36,10 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     nav: [
-      {
-        text: 'Présentation',
-        link: '/how-it-works/',
-      },
+      // {
+      //   text: 'Présentation',
+      //   link: '/how-it-works/',
+      // },
       {
         
         text: 'Get Started',
