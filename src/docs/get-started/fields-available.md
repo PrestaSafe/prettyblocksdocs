@@ -5,7 +5,7 @@ les champs utilisés restent les mêmes.
 Voici un exemple d'utilisation
 
 ## Text
-```php 
+```php create-a-block
 'title' => [
     'type' => 'text', // type of field
     'label' => 'Title', // label to display
@@ -15,9 +15,9 @@ Voici un exemple d'utilisation
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">default</code>  | Valeur par défault (type: `String`) |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >default</code>  | Valeur par défault (type: `String`) |
 
 ## Color
 Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une couleur custom.
@@ -31,9 +31,9 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">default</code>  | Valeur par défault (type: `String` (color en héxadecimal)) |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >default</code>  | Valeur par défault (type: `String` (color en héxadecimal)) |
 
 
 ## Textarea
@@ -47,9 +47,9 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">default</code>  | Valeur par défault (type: `String`) |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >default</code>  | Valeur par défault (type: `String`) |
 
 ## Fileupload
 ```php 
@@ -67,10 +67,10 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">path</code>  | Chemin d'upload du fichier, **Doigt absolument commencer par `$`** <br> `$` équivaut à `_PS_ROOT_DIR_` <br> pour un chemin custom d'un module: `$/module_name/views/images/`   |
-| <code style="color:red">default</code>  | Image par défaut (type: `Array`)  |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >path</code>  | Chemin d'upload du fichier, **Doigt absolument commencer par `$`** <br> `$` équivaut à `_PS_ROOT_DIR_` <br> pour un chemin custom d'un module: `$/module_name/views/images/`   |
+| <code >default</code>  | Image par défaut (type: `Array`)  |
 
 ## Selector
 `Selector` Vous permettra de créer un champs de recherche en fonction d'une `PrestaShopCollection` ou `ObjectModel`
@@ -91,10 +91,10 @@ Exemple pour rechercher un produit:
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">collection</code>  | `PrestaShopCollection` ou `ObjectModel`  <br>ex: `Product` / `Category` /  `CMS` (fonctionne avec tous les objects model)   |
-| <code style="color:red">default</code>  | value par defaut (type: `Array`)  |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >collection</code>  | `PrestaShopCollection` ou `ObjectModel`  <br>ex: `Product` / `Category` /  `CMS` (fonctionne avec tous les objects model)   |
+| <code >default</code>  | value par defaut (type: `Array`)  |
 
 ## Editor
 `Editor` Vous permettra de créer un champs de type `TinyMce`
@@ -109,9 +109,9 @@ Exemple pour rechercher un produit:
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">default</code>  | Valeur par défault (type: `String`) |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >default</code>  | Valeur par défault (type: `String`) |
 
 ## Checkbox
 `checkbox` Vous permettra de créer un champs de type `<input type='checkbox'>`
@@ -130,9 +130,9 @@ Return `Bool`
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select`   | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">default</code>  | Valeur par défault (type: `Boolean`) <p> Default: `false`</p> |
+| <code >type</code>  | Type du champs `text` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select`   | 
+| <code >label</code>  | Label à afficher |
+| <code >default</code>  | Valeur par défault (type: `Boolean`) <p> Default: `false`</p> |
 
 ## Radio Group
 `radio_group` Vous permettra de créer un choix sous forme de  `<input type='radio'>`
@@ -155,10 +155,10 @@ Return `String`
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">choices</code>  | Option possibles format: `['id' => 'value']` |
-| <code style="color:red">default</code>  | Valeur par défault (type: `String`) |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >choices</code>  | Option possibles format: `['id' => 'value']` |
+| <code >default</code>  | Valeur par défault (type: `String`) |
 
 
 ## Select
@@ -182,7 +182,7 @@ Return `String`
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code style="color:red">type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
-| <code style="color:red">label</code>  | Label à afficher |
-| <code style="color:red">choices</code>  | Option possibles format: `['id' => 'value']` |
-| <code style="color:red">default</code>  | Valeur par défault (type: `String`) |
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >label</code>  | Label à afficher |
+| <code >choices</code>  | Option possibles format: `['id' => 'value']` |
+| <code >default</code>  | Valeur par défault (type: `String`) |

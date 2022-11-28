@@ -112,22 +112,21 @@ un hook est exécuté avec le code du bloc en camelCase:  `hookbeforeRenderingbl
 
 Vous pouvez utiliser toutes les données de votre bloc dans le `$params['block']`
 ```php 
-public function hookbeforeRenderingblockCategoryProducts($params)
-{
-    $settings = $params['block']['settings'];
-    if($settings)
+ public function hookbeforeRenderingClassicFeaturedProduct($params)
     {
-        if(!isset($settings['category']['id']))
+        $settings = $params['block']['settings'];
+
+        if($settings)
         {
-            return false; 
+            if(isset($settings['category']['id']))
+            {
+                $id_category = (int)$settings['category']['id'];
+                return ['products' => $this->getProducts($id_category)];
+            }
         }
-        $id_category = (int)$settings['category']['id'];
-        
-        // $block.extra.products 
-        return ['products' => $this->getProducts($id_category)];
+        return ['products' => false];
+
     }
-    return false;
-}
 
 ```
 
@@ -151,4 +150,40 @@ vous pouvez rajouter un ou plusieurs templates pour ce dernier:
         'override2' => 'module:'.$this->name.'/views/templates/blocks/template2.tpl',
     ];
 }
+```
+
+## Sass compilation (ActionQueueSassCompile)
+
+Prettyblocks vous mâche votre travail de développeur, grâce à ce hook, vous pouvez
+compiler vos styles SASS ou CSS. <br> 
+Notre helper utiliser la librairie [scssphp](https://scssphp.github.io/scssphp/)
+
+Voici un exemple: 
+
+```php
+ public function hookActionQueueSassCompile()
+    {
+        $vars = [
+            'import_path' => [
+                '$/themes/cartzilla/_dev/css/'
+            ],
+            'entries' => [
+                '$/modules/'.$this->name.'/views/css/vars.scss'
+            ],
+            'out' => '$/themes/cartzilla/_dev/css/helpers/_custom_vars.scss'
+        ];
+
+        $theme = [
+            'import_path' => [
+                '$/themes/cartzilla/_dev/css/'
+            ],
+            'entries' => [
+                '$/themes/cartzilla/_dev/css/theme.scss'
+            ],
+            'out' => '$/themes/cartzilla/assets/css/theme.css'
+        ];
+
+
+        return [$vars, $theme];
+    }
 ```

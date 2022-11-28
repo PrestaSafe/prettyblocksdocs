@@ -84,14 +84,14 @@ Le hook **ActionRegisterBlock** est prévu pour enregistrer un block dans le bui
 
 | Champs            | Description                                      | Type     | Required    |
 | -----------       | -----------                                      | -------- | ----------- |        
-| <code style="color:red">name</code>        | Nom d'affichage de votre bloc                   | <code style="color:green">String</code> | <code style="color:red">true</code>      |
-| <code style="color:red">description</code> | Description de votre bloc                        | <code style="color:green">String</code> | <code style="color:red">true</code>      |
-| <code style="color:red">code</code>        | Description de votre bloc **doit absolument être unique** | <code style="color:green">String</code> | <code style="color:red">true</code>      |
-| <code style="color:red">icon</code>        | Icon heroicons (v2) en format camelCase <br>ex: `academic-cap` => `AcademicCapIcon` | <code style="color:green">String</code> | <code style="color:red">false</code>      |
-| <code style="color:red">need_reload</code> | Rechargement de l'iframe après avoir sauvegardé un bloc, utile si vous développer un block de type slider par exemple <br> Default: `true`| <code style="color:green">String</code> | <code style="color:red">false</code>       |
-| <code style="color:red">templates</code>   | Templates de votre blocs, **il est impératif d'avoir un template avec la clé `default`** <br> Vous pouvez enregistrer autant de templates que vous souhaitez | <code style="color:green">Array</code> | <code style="color:red">true</code>      |
-| <code style="color:red">config</code>      | Champs de configuration de votre bloc <br> **Doit avoir un tableau de champs <br>`'fields' => [ /*... fields ...*/ ]`** <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:green">Array</code> | <code style="color:red">false</code>   |
-| <code style="color:red">repeater</code>      | Champs répétables <br> Plus de détails [Champs répétable](#champs-repetables) | <code style="color:green">Array</code> | <code style="color:red">false</code>   |
+| <code>name</code>        | Nom d'affichage de votre bloc                   | <code style="color:#7ec699">String</code> | <code>true</code>      |
+| <code>description</code> | Description de votre bloc                        | <code style="color:#7ec699">String</code> | <code>true</code>      |
+| <code>code</code>        | Description de votre bloc **doit absolument être unique** | <code style="color:#7ec699">String</code> | <code>true</code>      |
+| <code>icon</code>        | Icon heroicons (v2) en format camelCase <br>ex: `academic-cap` => `AcademicCapIcon` | <code style="color:#7ec699">String</code> | <code>false</code>      |
+| <code>need_reload</code> | Rechargement de l'iframe après avoir sauvegardé un bloc, utile si vous développer un block de type slider par exemple <br> Default: `true`| <code style="color:#7ec699">String</code> | <code>false</code>       |
+| <code>templates</code>   | Templates de votre blocs, **il est impératif d'avoir un template avec la clé `default`** <br> Vous pouvez enregistrer autant de templates que vous souhaitez | <code style="color:#7ec699">Array</code> | <code>true</code>      |
+| <code>config</code>      | Champs de configuration de votre bloc <br> **Doit avoir un tableau de champs <br>`'fields' => [ /*... fields ...*/ ]`** <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>   |
+| <code>repeater</code>      | Champs répétables <br> Plus de détails [Champs répétable](#champs-repetables) | <code style="color:#7ec699">Array</code> | <code>false</code>   |
 
 ## Champs répétables
 Les champs répétables vous permettront de mettre autant de données que l'utilisateur le souhaite. 
@@ -100,6 +100,6 @@ Plusieurs paramètres sont requis.
 
 | Champs            | Description                                      | Type     | Required    |
 | -----------       | -----------                                      | -------- | ----------- |        
-| <code style="color:red">name</code>        | Noms par défaut des elements listés | <code style="color:green">String</code> | <code style="color:red">true</code>  |
-| <code style="color:red">nameFrom</code>        | Prends le nom de la valeur du champs répété <br> ex: `'nameFrom' => 'title'` affichera la valeur du champs title dans la liste | <code style="color:green">String</code> | <code style="color:red">false</code>  |
-| <code style="color:red">repeater</code>        | Liste des champs <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:green">Array</code> | <code style="color:red">false</code>  |
+| <code>name</code>        | Noms par défaut des elements listés | <code style="color:#7ec699">String</code> | <code>true</code>  |
+| <code>nameFrom</code>        | Prends le nom de la valeur du champs répété <br> ex: `'nameFrom' => 'title'` affichera la valeur du champs title dans la liste | <code style="color:#7ec699">String</code> | <code>false</code>  |
+| <code>repeater</code>        | Liste des champs <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>  |

@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'PrettyBlocks: Docs',
+  title: 'PrettyBlocks',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -21,7 +21,7 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#5530be' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
   ],
 
   /**
@@ -36,10 +36,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     nav: [
-      // {
-      //   text: 'Présentation',
-      //   link: '/how-it-works/',
-      // },
+     
       {
         
         text: 'Get Started',
@@ -53,14 +50,14 @@ module.exports = {
         text: 'Templating',
         link: '/docs/tpl/',
       },
-      // {
-      //   text: 'Config',
-      //   link: '/config/'
-      // },
+      {
+        text: 'GitHub',
+        link: 'https://github.com/PrestaSafe/prettyblocks'
+      },
       {
         text: 'PrestaSafe',
         link: 'https://www.prestasafe.com'
-      }
+      },
     ],
     sidebar: {
       '/how-it-works': [

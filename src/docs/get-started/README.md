@@ -1,11 +1,13 @@
-# Hello world 
+# Prettyblocks
 
 Prettyblocks est un tout nouveau system de création de contenu par système de blocs conçu spécifiquement pour **PrestaShop**.
-<br> 
-Nous allons voir dans cette documentation comment utiliser ce système en toute simplicité. 
+
+Ce dernier est compatible **PrestaShop 1.7, 8.0.X et fonctionne avec tous les thèmes** :) 
+
 
 <img :src="$withBase('/hello-prettyblocks.png')" alt="foo" class="width: 100%">
 
+Nous allons voir dans cette documentation comment utiliser ce système en toute simplicité. 
 ## Concept
 
 En partant du constat qu'un module ne peux être utilisé qu'une seule fois sur un hook, nous avons décidé de développer un système de type Page Builder
@@ -17,4 +19,4 @@ Ces zones pourront être utilisés sur des Hooks où placé dans vos thèmes où
 
 ## Télécharger le module
 
-Dans un premier temps, nous invitons à télécharger le module ici [PrettyBlocks en dernière version Stable](https://www.prettyblocks.io)
+Dans un premier temps, nous invitons à télécharger le module ici [PrettyBlocks en dernière version Stable](https://github.com/PrestaSafe/prettyblocks)

@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: ./logo-prettyblocks-x2.png
-tagline: PrettyBlocks Docs
+tagline: PrettyBlocks - Documentation développeur
 actionText: Commencer maintenant →
 actionLink: /docs/get-started/
 features:
