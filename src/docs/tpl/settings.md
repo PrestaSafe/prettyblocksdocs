@@ -2,7 +2,7 @@
 
 
 ::: tip
-Tous les paramètres que vous avez enregistré dans votre thème peuvent être récupérés
+Tous les paramètres que vous avez enregistrés dans votre thème peuvent être récupérés
 avec notre helper front
 :::
 
@@ -20,7 +20,7 @@ via smarty
 {TplSettings::getSettings('radio_group')}
 ```
 
-Ces informations vous donnerons accès aux valeurs des champs de type settings. 
+Ces informations vous donneront accès aux valeurs des champs de type settings. 
 
 ```php
 return [
@@ -45,6 +45,6 @@ return [
 ]
 ```
 
-Exemple: `{TplSettings::getSettings('radio_group')}` retournera `Radio 3` ou `Radio 1` si l'utlisateur à choisi la valeur `1`
+Exemple: `{TplSettings::getSettings('radio_group')}` retournera `Radio 3` ou `Radio 1` si l'utlisateur a choisi la valeur `1`
 
-`{TplSettings::getSettings('settings_name')}` retournera `#000000` ou la valeur définir par l'utlisateur. 
+`{TplSettings::getSettings('settings_name')}` retournera `#000000` ou la valeur définie par l'utlisateur. 

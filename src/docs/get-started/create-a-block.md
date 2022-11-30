@@ -1,9 +1,9 @@
-# Creer votre premier block
+# Créer votre premier block
 
 ## Concept  
 
 Un module peut enregistrer **plusieurs blocks**
-Vous trouverez en exemple notre module **classicblocks** qui reprends les 4 modules PrestaShop essentiels:
+Vous trouverez en exemple notre module **classicblocks** qui reprend les 4 modules PrestaShop essentiels:
 - Slider
 - Bannière
 - Text personnalisé
@@ -94,8 +94,8 @@ Le hook **ActionRegisterBlock** est prévu pour enregistrer un ou plusieurs bloc
 | <code>description</code> | Description de votre block                        | <code style="color:#7ec699">String</code> | <code>true</code>      |
 | <code>code</code>        | Description de votre block **doit absolument être unique** | <code style="color:#7ec699">String</code> | <code>true</code>      |
 | <code>icon</code>        | Icon heroicons (v2) en format camelCase <br>ex: `academic-cap` => `AcademicCapIcon` <br> Liste disponible ici: [Heroicons](https://heroicons.com/)| <code style="color:#7ec699">String</code> | <code>false</code>      |
-| <code>need_reload</code> | Rechargement de l'iframe après avoir sauvegardé un block, utile si vous développer un block de type slider par exemple <br> Default: `true`| <code style="color:#7ec699">String</code> | <code>false</code>       |
-| <code>templates</code>   | Templates de votre blocks, **il est impératif d'avoir un template avec la clé `default`** <br> Vous pouvez enregistrer autant de templates que vous souhaitez | <code style="color:#7ec699">Array</code> | <code>true</code>      |
+| <code>need_reload</code> | Rechargement de l'iframe après avoir sauvegardé un block, utile si vous développez un block de type slider par exemple <br> Default: `true`| <code style="color:#7ec699">String</code> | <code>false</code>       |
+| <code>templates</code>   | Templates de votre block, **il est impératif d'avoir un template avec la clé `default`** <br> Vous pouvez enregistrer autant de templates que vous souhaitez | <code style="color:#7ec699">Array</code> | <code>true</code>      |
 | <code>config</code>      | Champs de configuration de votre block <br> **Doit avoir un tableau de champs <br>`'fields' => [ /*... fields ...*/ ]`** <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>   |
 | <code>repeater</code>      | Champs répétables <br> Plus de détails [Champs répétable](#champs-repetables) | <code style="color:#7ec699">Array</code> | <code>false</code>   |
 
@@ -106,6 +106,6 @@ Plusieurs paramètres sont requis.
 
 | Champs            | Description                                      | Type     | Required    |
 | -----------       | -----------                                      | -------- | ----------- |        
-| <code>name</code>        | Nom par défaut des elements listés | <code style="color:#7ec699">String</code> | <code>true</code>  |
-| <code>nameFrom</code>        | Prends le nom de la valeur du champs répété <br> ex: `'nameFrom' => 'title'` affichera la valeur du champs title dans la liste | <code style="color:#7ec699">String</code> | <code>false</code>  |
+| <code>name</code>        | Nom par défaut des éléments listés | <code style="color:#7ec699">String</code> | <code>true</code>  |
+| <code>nameFrom</code>        | Prend le nom de la valeur du champs répété <br> ex: `'nameFrom' => 'title'` affichera la valeur du champs title dans la liste | <code style="color:#7ec699">String</code> | <code>false</code>  |
 | <code>repeater</code>        | Liste des champs <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>  |

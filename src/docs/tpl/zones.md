@@ -7,7 +7,7 @@ En **greffant le module sur le hook** que vous souhaitez, ce dernier créera une
 
 ## Créer une zone
 
-Plusieurs choix s'offrent à vous, le premier consiste à utilisez le widget du module: 
+Plusieurs choix s'offrent à vous, le premier consiste à utiliser le widget du module: 
 
 `{widget name="cz_builder" zone_name="myCustomZone"}`
 

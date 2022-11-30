@@ -20,4 +20,4 @@ Ces zones peuvent être des Hooks ou non, vous pourrez également les placer où
 
 ## Télécharger le module
 
-Dans un premier temps, nous invitons à télécharger le module ici [PrettyBlocks en dernière version Stable](https://github.com/PrestaSafe/prettyblocks)
+Dans un premier temps, nous vous invitons à télécharger le module ici [PrettyBlocks en dernière version Stable](https://github.com/PrestaSafe/prettyblocks)
