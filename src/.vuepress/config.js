@@ -1,5 +1,4 @@
 const { description } = require('../../package')
-
 module.exports = {
   host: 'localhost',
   port: 8282,
@@ -7,7 +6,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'PrettyBlocks',
+  title: 'PrettyBlocks - Page builder PrestaShop',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */

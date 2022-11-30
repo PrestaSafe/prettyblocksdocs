@@ -1,7 +1,7 @@
 {
   "name": "prettyblocksdocs",
   "version": "0.0.1",
-  "description": "Documentation of prettyblocks",
+  "description": "PrettyBlocks - Page builder open source et gratuit pour PrestaShop",
   "main": "index.js",
   "authors": {
     "name": "Guillaume Batier",
