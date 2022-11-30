@@ -1,6 +1,6 @@
-# Intro
-Afin d'étendre au mieux les fonctionnalités de PrettyBlocks, nous avons implémentés
-certains hooks. 
+# Hooks disponibles
+Afin d'étendre au mieux les fonctionnalités de **PrettyBlocks**, nous avons implémentés
+certains hooks pour faciliter la vie des développeurs.
 
 ## Register Hooks (ActionRegisterBlock)
 
@@ -42,7 +42,7 @@ public function hookActionRegisterBlock()
 
 Le hook **ActionRegisterThemeSettings** vous permettra d'enregistrer des paramètres généraux pour votre thème. 
 Pour enregistrer des paramètres, vous devez retourner un tableau de [Champs](/get-started/fields-available) 
-Seul le paramètre <code style="color:red">tab</code> vous permettra d'ajouter votre paramètres dans un tab existant, ou de le créer si il n'existe pas. 
+Seul le paramètre <code>tab</code> vous permettra d'ajouter votre paramètres dans un tab existant, ou de le créer si il n'existe pas. 
 ex: ` 'tab' => 'design' ` placera le paramètre dans un onglet `Design`
 ```php
 public function hookActionRegisterThemeSettings()
@@ -165,25 +165,70 @@ Voici un exemple:
     {
         $vars = [
             'import_path' => [
-                '$/themes/cartzilla/_dev/css/'
+                '$/themes/classic/_dev/css/'
             ],
             'entries' => [
                 '$/modules/'.$this->name.'/views/css/vars.scss'
             ],
-            'out' => '$/themes/cartzilla/_dev/css/helpers/_custom_vars.scss'
+            'out' => '$/themes/classic/_dev/css/helpers/_custom_vars.scss'
         ];
 
         $theme = [
             'import_path' => [
-                '$/themes/cartzilla/_dev/css/'
+                '$/themes/classic/_dev/css/'
             ],
             'entries' => [
-                '$/themes/cartzilla/_dev/css/theme.scss'
+                '$/themes/classic/_dev/css/theme.scss'
             ],
-            'out' => '$/themes/cartzilla/assets/css/theme.css'
+            'out' => '$/themes/classic/assets/css/theme.css'
         ];
 
 
         return [$vars, $theme];
     }
 ```
+
+Afin de mieux l'exploiter, vous pouvez simplement utiliser les `Themes settings` dans un fichier `scss` ou `css` et **Prettyblocks** se charge du reste. 
+Il n'est donc pas nécessaire de compiler avec NPM ou yarn, cela dit, pour les plus fan de ces technologies, 
+vous pouvez utiliser ces outils sans perturber le fonctionnement du builder :) 
+`import_path`: ajoute un chemin d'import (CF lib [scssphp](https://scssphp.github.io/scssphp/))
+`entries`: les fichiers à mettre en entrée (pas de limite de nombre)
+`out`: le fichier qui sera compilé en sortie
+
+Ex: avec la variable `$sass`
+
+```php
+
+    $vars = [
+        'import_path' => [
+            '$/themes/classic/_dev/css/'
+        ],
+        'entries' => [
+            '$/modules/'.$this->name.'/views/css/vars.scss'
+        ],
+        'out' => '$/themes/classic/_dev/css/helpers/_custom_vars.scss'
+    ];
+
+```
+Contenu du fichier `'$/modules/'.$this->name.'/views/css/vars.scss'` 
+
+```scss
+    $gray-900:  $SETTINGS_bg_dark !default;
+    $icon-color-top-bar: $SETTINGS_icon_top_bar_color !default;
+    $primary: $SETTINGS_primary_color !default;
+    ...
+
+```
+
+Fichier compilé par **PrettyBlocks** `$/themes/classic/_dev/css/helpers/_custom_vars.scss`
+
+```scss
+    $gray-900:  #373f50 !default;
+    $icon-color-top-bar: #fe696a !default;
+    $primary: #fe696a !default;
+   ...
+
+```
+
+`$SETTINGS_bg_dark` a pris la valeur du `Theme Settings` qui à pour nom `bg_dark`
+il est obligatoire d'utiliser `$SETTINGS_` + `{nom_du_settings}` afin de faire matcher la valeure. 

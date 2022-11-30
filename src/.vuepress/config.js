@@ -1,6 +1,9 @@
 const { description } = require('../../package')
 
 module.exports = {
+  host: 'localhost',
+  port: 8282,
+  
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -38,10 +41,13 @@ module.exports = {
     nav: [
      
       {
-        
         text: 'Get Started',
         link: '/docs/get-started/',
       },
+      // {
+      //   text: 'Comment ça marche',
+      //   link: '/how-it-works/',
+      // },
       {
         text: 'Hooks',
         link: '/docs/hooks/',
@@ -49,6 +55,10 @@ module.exports = {
       {
         text: 'Templating',
         link: '/docs/tpl/',
+      },
+      {
+        text: 'Contribuer',
+        link: '/docs/contribute/',
       },
       {
         text: 'GitHub',
@@ -73,7 +83,8 @@ module.exports = {
           children: [
             '',
             'create-a-block',
-            'fields-available'
+            'fields-available',
+            '/docs/hooks/',
           ]
         }
       ],
@@ -84,6 +95,7 @@ module.exports = {
           collapsable: true,
           children: [
             '',
+            '/docs/tpl/',
           ]
         }
       ],
@@ -96,6 +108,16 @@ module.exports = {
             '',
             'zones',
             'settings'
+          ]
+        }
+      ],
+      '/docs/contribute/' : [
+        {
+          title: 'Contribuer',
+          collapsable: true,
+          sidebarDepth: 3,
+          children: [
+            '',
           ]
         }
       ]
