@@ -1,5 +1,6 @@
-# Données
-Les templates utilisés sont des template utilisant le moteur de template principale de PrestaShop: `Smarty`
+# Templating
+
+Les templates utilisés sont des templates utilisant le moteur de template principal de PrestaShop: `Smarty`
 
 Chaque templates doivent être enregistrés en utilisant la nouvelle syntaxe de PrestaShop: 
 
@@ -18,7 +19,7 @@ Ce dernier peut être surclassé en le plaçant dans un thème:
 
 ## Utiliser les données du bloc
 
-PrettyBloc renvoi dans chaque blocs, un variable nommée: `$block`
+**PrettyBlocks** renvoi dans chaque blocks, un variable nommée: `$block`
 
 ### Configuration
 Toutes les données définies dans la section `config` peuvent être exploitées sous cette forme:
@@ -46,11 +47,25 @@ Pour récupérer `title` placez dans vos templates: `{$block.settings.title}`
 
 Pour `color` => `{$block.settings.color}` etc... 
 
+### Champs par défauts
+
+Il existe 2 champs par défaut que tous les blocks peuvent utiliser.
+
+`container` Utiliser pour placer dans un container ou non (à vous de l'utiliser de cette manière)
+
+```smarty
+    <div class="{if $block.settings.default.container} container {/if}"> ... </div>
+```
+
+`bg_color` pour utiliser un `background-color` 
+```smarty
+    <div style="{if $block.settings.default.bg_color}background-color: {$block.settings.default.bg_color} {/if}"> ... </div>
+```
 
 ### Champs répétables
 
-Comme pour les champs de configuration, les champs répétables (`repeater`) sont également présents dans chaque blocs
-Vous pouvez les utilisez avec cette variable: `{$block.states}`
+Comme pour les champs de configuration, les champs répétables (`repeater`) sont également présents dans chaque blocks
+Vous pouvez les utiliser avec cette variable: `{$block.states}`
 
 
 ```php 

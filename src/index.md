@@ -1,7 +1,7 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: PrettyBlocks Docs
+heroImage: ./logo-prettyblocks-x2.png
+tagline: PrettyBlocks - Documentation développeur
 actionText: Commencer maintenant →
 actionLink: /docs/get-started/
 features:

@@ -1,10 +1,13 @@
 const { description } = require('../../package')
 
 module.exports = {
+  host: 'localhost',
+  port: 8282,
+  
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'PrettyBlocks: Docs',
+  title: 'PrettyBlocks',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -21,7 +24,7 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#5530be' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
   ],
 
   /**
@@ -36,15 +39,15 @@ module.exports = {
     editLinkText: '',
     lastUpdated: false,
     nav: [
+     
       {
-        text: 'Présentation',
-        link: '/how-it-works/',
-      },
-      {
-        
         text: 'Get Started',
         link: '/docs/get-started/',
       },
+      // {
+      //   text: 'Comment ça marche',
+      //   link: '/how-it-works/',
+      // },
       {
         text: 'Hooks',
         link: '/docs/hooks/',
@@ -53,14 +56,18 @@ module.exports = {
         text: 'Templating',
         link: '/docs/tpl/',
       },
-      // {
-      //   text: 'Config',
-      //   link: '/config/'
-      // },
+      {
+        text: 'Contribuer',
+        link: '/docs/contribute/',
+      },
+      {
+        text: 'GitHub',
+        link: 'https://github.com/PrestaSafe/prettyblocks'
+      },
       {
         text: 'PrestaSafe',
         link: 'https://www.prestasafe.com'
-      }
+      },
     ],
     sidebar: {
       '/how-it-works': [
@@ -76,7 +83,8 @@ module.exports = {
           children: [
             '',
             'create-a-block',
-            'fields-available'
+            'fields-available',
+            '/docs/hooks/',
           ]
         }
       ],
@@ -87,6 +95,7 @@ module.exports = {
           collapsable: true,
           children: [
             '',
+            '/docs/tpl/',
           ]
         }
       ],
@@ -99,6 +108,16 @@ module.exports = {
             '',
             'zones',
             'settings'
+          ]
+        }
+      ],
+      '/docs/contribute/' : [
+        {
+          title: 'Contribuer',
+          collapsable: true,
+          sidebarDepth: 3,
+          children: [
+            '',
           ]
         }
       ]
