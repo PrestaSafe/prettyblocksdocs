@@ -1,13 +1,13 @@
 # Prettyblocks
 
-Prettyblocks est un tout nouveau system de création de contenu de type "Blocks" conçu spécifiquement pour [**PrestaShop**](https://www.prestashop-project.org). Ce système est également appelé **Page builder**. 
+Prettyblocks est un tout nouveau système de création de contenu de type "Blocks" conçu spécifiquement pour [**PrestaShop**](https://www.prestashop-project.org). Ce système est également appelé **Page builder**. 
 
 Ce dernier est compatible **PrestaShop 1.7, 8.0.X et fonctionne avec tous les thèmes** :) 
 
 
 <img :src="$withBase('/hello-prettyblocks.png')" alt="foo" class="width: 100%">
 
-Cette documentation est orienté développeur et à pour but de montrer comment exploiter PrettyBlocks. 
+Cette documentation est orientée développeur et à pour but de montrer comment exploiter PrettyBlocks. 
 
 ## Concept
 
