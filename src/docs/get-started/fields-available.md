@@ -1,6 +1,6 @@
 # Champs disponibles
 
-Que ce soit dans la section `config` ou  `repeater` 
+Que ce soit dans la section `config` ou `repeater` 
 les champs utilisés restent les mêmes. 
 Voici un exemple d'utilisation
 
@@ -184,5 +184,5 @@ Return `String`
 | -----------       | -----------  |                                
 | <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
 | <code >label</code>  | Label à afficher |
-| <code >choices</code>  | Option possibles format: `['id' => 'value']` |
+| <code >choices</code>  | Options possibles format: `['id' => 'value']` |
 | <code >default</code>  | Valeur par défault (type: `String`) |

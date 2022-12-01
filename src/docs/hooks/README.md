@@ -1,5 +1,5 @@
 # Hooks disponibles
-Afin d'étendre au mieux les fonctionnalités de **PrettyBlocks**, nous avons implémentés
+Afin d'étendre au mieux les fonctionnalités de **PrettyBlocks**, nous avons implémenté
 certains hooks pour faciliter la vie des développeurs.
 
 ## Register Hooks (ActionRegisterBlock)
@@ -42,7 +42,7 @@ public function hookActionRegisterBlock()
 
 Le hook **ActionRegisterThemeSettings** vous permettra d'enregistrer des paramètres généraux pour votre thème. 
 Pour enregistrer des paramètres, vous devez retourner un tableau de [Champs](/get-started/fields-available) 
-Seul le paramètre <code>tab</code> vous permettra d'ajouter votre paramètres dans un tab existant, ou de le créer si il n'existe pas. 
+Seul le paramètre <code>tab</code> vous permettra d'ajouter votre paramètre dans un tab existant, ou de le créer si il n'existe pas. 
 ex: ` 'tab' => 'design' ` placera le paramètre dans un onglet `Design`
 ```php
 public function hookActionRegisterThemeSettings()
@@ -108,7 +108,7 @@ public function hookActionRegisterThemeSettings()
 
 Afin d'étendre les données de votre block, vous pouvez rajouter des données via ce hook: 
 Exemple pour un block aillant pour code: `block_category_products`
-un hook est exécuté avec le code du bloc en camelCase:  `hookbeforeRenderingblockCategoryProducts`
+un hook est exécuté avec le code du block en camelCase:  `hookbeforeRenderingblockCategoryProducts`
 
 Vous pouvez utiliser toutes les données de votre bloc dans le `$params['block']`
 ```php 
@@ -130,7 +130,7 @@ Vous pouvez utiliser toutes les données de votre bloc dans le `$params['block']
 
 ```
 
-Toutes les clés retournés pourront être utilisé dans la variable `$block.extra` sur le front office. 
+Toutes les clés retournées pourront être utilisées dans la variable `$block.extra` sur le front office. 
 Résulat de notre exemple: `$block.extra.products` retournera un tableau de produits. 
 
 
@@ -152,11 +152,11 @@ vous pouvez rajouter un ou plusieurs templates pour ce dernier:
 }
 ```
 
-## Sass compilation (ActionQueueSassCompile)
+## SASS compilation (ActionQueueSassCompile)
 
 Prettyblocks vous mâche votre travail de développeur, grâce à ce hook, vous pouvez
 compiler vos styles SASS ou CSS. <br> 
-Notre helper utiliser la librairie [scssphp](https://scssphp.github.io/scssphp/)
+Notre helper utilise la librairie [scssphp](https://scssphp.github.io/scssphp/)
 
 Voici un exemple: 
 
@@ -230,5 +230,5 @@ Fichier compilé par **PrettyBlocks** `$/themes/classic/_dev/css/helpers/_custom
 
 ```
 
-`$SETTINGS_bg_dark` a pris la valeur du `Theme Settings` qui à pour nom `bg_dark`
-il est obligatoire d'utiliser `$SETTINGS_` + `{nom_du_settings}` afin de faire matcher la valeure. 
+`$SETTINGS_bg_dark` a pris la valeur du `Theme Settings` qui a pour nom `bg_dark`
+il est obligatoire d'utiliser `$SETTINGS_` + `{nom_du_settings}` afin de faire matcher la valeur. 

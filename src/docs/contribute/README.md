@@ -11,7 +11,7 @@ Ce dernier utilise les technologies suivantes:
 
 Rendez vous dans le dossier `_dev` du module **PrettyBlocks** 
 
-puis installez les dépendences: 
+puis installez les dépendances: 
 `npm install`
 
 Lancer ensuite le serveur de développement
@@ -28,9 +28,9 @@ et placez la variable `{% set vitedev = false %}`
 
 `{% set vitedev = true %}`
 
-Si le serveur vous renvoi une autre adresse que  `http://localhost:3002`
+Si le serveur vous renvoie une autre adresse que  `http://localhost:3002`
 
-Remplacer cette url dans les lignes suivantes par l'url de serveur de développement:
+Remplacer cette url dans les lignes suivantes par l'url du serveur de développement:
 ```twig
 {% if vitedev %}
     <script type="module" src="http://localhost:3002/@vite/client"></script> 
@@ -46,5 +46,5 @@ Enfin, une fois vos modifications terminées lancez un:
 `npm run build` 
 puis repassez la variable `vitedev` à false `{% set vitedev = false %}`
 
-Vous pouvez nous faire une pull request et nous serons ravi d'échanger à ce sujet :) 
+Vous pouvez nous faire une pull request et nous serons ravis d'échanger à ce sujet :) 
 
