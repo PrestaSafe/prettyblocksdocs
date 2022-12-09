@@ -10,7 +10,7 @@ features:
 - title: Compatible avec tous les thèmes
   details: Utilisez PrettyBlocks sur tous les thèmes sans difficultés
 - title: Friendly user & dev
-  details: Pensé pour les marchards et les développeurs
+  details: Pensé pour les marchands et les développeurs
 
 ---
 
