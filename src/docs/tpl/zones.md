@@ -9,7 +9,7 @@ En **greffant le module sur le hook** que vous souhaitez, ce dernier créera une
 
 Plusieurs choix s'offrent à vous, le premier consiste à utiliser le widget du module: 
 
-`{widget name="cz_builder" zone_name="myCustomZone"}`
+`{widget name="prettyblocks" zone_name="myCustomZone"}`
 
 Le second consiste à utiliser un hook personnalisé puis de greffer le module dessus:
 
