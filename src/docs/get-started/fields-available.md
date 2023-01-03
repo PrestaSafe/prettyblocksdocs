@@ -58,9 +58,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
     'label' => 'File upload', // label to display
     'path' => '$/cz_gallery/imgs/', // path to upload
     'default' => [ // default value
-        'imgs' => [
-            ['url' => 'https://via.placeholder.com/100x100'],
-        ]
+        ['url' => 'https://via.placeholder.com/100x100'],
     ],
 ]
 ```
