@@ -94,9 +94,7 @@ public function hookActionRegisterThemeSettings()
             'label' => 'File upload',
             'path' => '$/fakemodule/views/images/test/',
             'default' => [
-                'imgs' => [
-                    ['url' => 'https://via.placeholder.com/141x180'],
-                ]
+                ['url' => 'https://via.placeholder.com/141x180'],
             ],
         ]
     ];
@@ -104,10 +102,10 @@ public function hookActionRegisterThemeSettings()
 ```
 
 
-## Extend block (beforeRendering{BlockCode})
+## Extend block (beforeRenderingBlock{BlockCode})
 
 Afin d'étendre les données de votre block, vous pouvez rajouter des données via ce hook: 
-Exemple pour un block aillant pour code: `block_category_products`
+Exemple pour un block aillant pour code: `category_products`
 un hook est exécuté avec le code du block en camelCase:  `hookbeforeRenderingblockCategoryProducts`
 
 Vous pouvez utiliser toutes les données de votre bloc dans le `$params['block']`
