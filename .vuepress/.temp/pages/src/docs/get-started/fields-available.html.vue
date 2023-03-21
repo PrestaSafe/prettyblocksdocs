@@ -116,7 +116,7 @@ Voici un exemple d'utilisation</p>
 </tr>
 <tr>
 <td><code style="color:red">path</code></td>
-<td>Chemin d'upload du fichier, <strong>Doigt absolument commencer par <code v-pre>$</code></strong> <br> <code v-pre>$</code> équivaut à <code v-pre>_PS_ROOT_DIR_</code> <br> pour un chemin custom d'un module: <code v-pre>$/module_name/views/images/</code></td>
+<td>Chemin d'upload du fichier, <strong>Doit absolument commencer par <code v-pre>$</code></strong> <br> <code v-pre>$</code> équivaut à <code v-pre>_PS_ROOT_DIR_</code> <br> pour un chemin custom d'un module: <code v-pre>$/module_name/views/images/</code></td>
 </tr>
 <tr>
 <td><code style="color:red">default</code></td>

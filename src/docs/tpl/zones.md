@@ -15,10 +15,12 @@ Le second consiste à utiliser un hook personnalisé puis de greffer le module d
 
 `{hook h="myCustomHook" zone_name="myCustomZone"}`
 
-Le dernier, consiste à utiliser le helper `MagicZone`
+Le dernier, consiste à utiliser le helper `PrettyBlockZone`
 
-`{magic_zone zone_name="myCustomZone"}`
+`{prettyblocks_zone zone_name="myCustomZone"}`
 
-
+::: warning
+`{magic_zone}` est, depuis la version 1.1.0 dépréciée, veuillez utiliser `{prettyblocks_zone}`
+:::
 
 

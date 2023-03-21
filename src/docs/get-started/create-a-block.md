@@ -59,6 +59,7 @@ class FakeModule extends Module implements WidgetInterface
             'code' => 'fake_block', // required must be uniq
             'icon' => 'StarIcon', // https://heroicons.com V2
             'need_reload' => true, // reload iframe after save
+            'nameFrom' => 'field_name' // take the name of a config field
             'templates' => [
                 'default' =>  'module:'.$this->name.'/views/templates/block/default.tpl'
             ],
@@ -94,6 +95,7 @@ Le hook **ActionRegisterBlock** est prévu pour enregistrer un ou plusieurs bloc
 | <code>description</code> | Description de votre block                        | <code style="color:#7ec699">String</code> | <code>true</code>      |
 | <code>code</code>        | Description de votre block **doit absolument être unique** | <code style="color:#7ec699">String</code> | <code>true</code>      |
 | <code>icon</code>        | Icon heroicons (v2) en format camelCase <br>ex: `academic-cap` => `AcademicCapIcon` <br> Liste disponible ici: [Heroicons](https://heroicons.com/)| <code style="color:#7ec699">String</code> | <code>false</code>      |
+| <code>nameFrom</code>        | Donner un nom custom à votre block<br>ex: `title` <br> Prendra le valeur du contenu du champs de configuration `title`| <code style="color:#7ec699">String</code> | <code>false</code>      |
 | <code>need_reload</code> | Rechargement de l'iframe après avoir sauvegardé un block, utile si vous développez un block de type slider par exemple <br> Default: `true`| <code style="color:#7ec699">String</code> | <code>false</code>       |
 | <code>templates</code>   | Templates de votre block, **il est impératif d'avoir un template avec la clé `default`** <br> Vous pouvez enregistrer autant de templates que vous souhaitez | <code style="color:#7ec699">Array</code> | <code>true</code>      |
 | <code>config</code>      | Champs de configuration de votre block <br> **Doit avoir un tableau de champs <br>`'fields' => [ /*... fields ...*/ ]`** <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>   |
