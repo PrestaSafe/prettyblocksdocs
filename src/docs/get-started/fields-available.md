@@ -67,7 +67,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 | -----------       | -----------  |                                
 | <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
 | <code >label</code>  | Label à afficher |
-| <code >path</code>  | Chemin d'upload du fichier, **Doit absolument commencer par `$`** <br> `$` équivaut à `_PS_ROOT_DIR_` <br> pour un chemin custom d'un module: `$/module_name/views/images/`   |
+| <code >path</code>  | Chemin d'upload du fichier, **Doit absolument commencer par `$`** <br> `$` équivaut à `_PS_ROOT_DIR_` <br> pour un chemin custom d'un module: `$/modules/module_name/views/images/`   |
 | <code >default</code>  | Image par défaut (type: `Array`)  |
 
 ## Selector
