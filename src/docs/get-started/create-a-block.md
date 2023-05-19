@@ -110,4 +110,4 @@ Plusieurs paramètres sont requis.
 | -----------       | -----------                                      | -------- | ----------- |        
 | <code>name</code>        | Nom par défaut des éléments listés | <code style="color:#7ec699">String</code> | <code>true</code>  |
 | <code>nameFrom</code>        | Prend le nom de la valeur du champs répété <br> ex: `'nameFrom' => 'title'` affichera la valeur du champs title dans la liste | <code style="color:#7ec699">String</code> | <code>false</code>  |
-| <code>repeater</code>        | Liste des champs <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>  |
+| <code>groups</code>        | Liste des champs <br> voir [Champs disponibles](#champs-disponibles)  | <code style="color:#7ec699">Array</code> | <code>false</code>  |
