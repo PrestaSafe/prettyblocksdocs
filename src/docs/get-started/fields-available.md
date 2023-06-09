@@ -18,6 +18,7 @@ Voici un exemple d'utilisation
 | <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 ## Color
 Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une couleur custom.
@@ -34,6 +35,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 | <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String` (color en héxadecimal)) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 
 ## Textarea
@@ -50,6 +52,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 | <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 ## Fileupload
 ```php 
@@ -69,6 +72,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 | <code >label</code>  | Label à afficher |
 | <code >path</code>  | Chemin d'upload du fichier, **Doit absolument commencer par `$`** <br> `$` équivaut à `_PS_ROOT_DIR_` <br> pour un chemin custom d'un module: `$/modules/module_name/views/images/`   |
 | <code >default</code>  | Image par défaut (type: `Array`)  |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 ## Selector
 `Selector` Vous permettra de créer un champs de recherche en fonction d'une `PrestaShopCollection` ou `ObjectModel`
@@ -93,6 +97,7 @@ Exemple pour rechercher un produit:
 | <code >label</code>  | Label à afficher |
 | <code >collection</code>  | `PrestaShopCollection` ou `ObjectModel`  <br>ex: `Product` / `Category` /  `CMS` (fonctionne avec tous les objects model)   |
 | <code >default</code>  | value par defaut (type: `Array`)  |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 ## Editor
 `Editor` Vous permettra de créer un champs de type `TinyMce`
@@ -110,6 +115,7 @@ Exemple pour rechercher un produit:
 | <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 ## Checkbox
 `checkbox` Vous permettra de créer un champs de type `<input type='checkbox'>`
@@ -131,6 +137,7 @@ Return `Bool`
 | <code >type</code>  | Type du champs `text` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select`   | 
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `Boolean`) <p> Default: `false`</p> |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 ## Radio Group
 `radio_group` Vous permettra de créer un choix sous forme de  `<input type='radio'>`
@@ -157,6 +164,7 @@ Return `String`
 | <code >label</code>  | Label à afficher |
 | <code >choices</code>  | Option possibles format: `['id' => 'value']` |
 | <code >default</code>  | Valeur par défault (type: `String`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
 
 
 ## Select
@@ -184,3 +192,4 @@ Return `String`
 | <code >label</code>  | Label à afficher |
 | <code >choices</code>  | Options possibles format: `['id' => 'value']` |
 | <code >default</code>  | Valeur par défault (type: `String`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |

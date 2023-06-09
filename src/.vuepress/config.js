@@ -84,6 +84,7 @@ module.exports = {
             'create-a-block',
             'fields-available',
             '/docs/hooks/',
+            '/docs/helper/',
           ]
         }
       ],
@@ -95,6 +96,7 @@ module.exports = {
           children: [
             '',
             '/docs/tpl/',
+            '/docs/helper/',
           ]
         }
       ],
@@ -107,6 +109,16 @@ module.exports = {
             '',
             'zones',
             'settings'
+          ]
+        }
+      ],
+      '/docs/helper/' : [
+        {
+          title: 'Helper',
+          collapsable: true,
+          sidebarDepth: 3,
+          children: [
+            '',
           ]
         }
       ],
