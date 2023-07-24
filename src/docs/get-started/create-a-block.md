@@ -58,6 +58,7 @@ class FakeModule extends Module implements WidgetInterface
             'description' => 'Description of your block',
             'code' => 'fake_block', // required must be uniq
             'icon' => 'StarIcon', // https://heroicons.com V2
+            'icon_path' => 'https://yoursite.com/img/icon.png', // custom icon
             'need_reload' => true, // reload iframe after save
             'nameFrom' => 'field_name' // take the name of a config field
             'templates' => [
@@ -112,6 +113,7 @@ class MyCustomBlock implements BlockInterface
             'description' => $this->module->l('Description of your block'),
             'code' => 'fake_block', // required must be uniq
             'icon' => 'StarIcon', // https://heroicons.com V2
+            'icon_path' => 'https://yoursite.com/img/icon.png', // custom icon
             'need_reload' => true, // reload iframe after save
             'nameFrom' => 'field_name' // take the name of a config field
             'insert_default_values' => true, // new since 2.0.0 
@@ -203,6 +205,7 @@ class FakeModule extends Module implements WidgetInterface
 | <code>description</code> | Description de votre block                        | <code style="color:#7ec699">String</code> | <code>true</code>      |
 | <code>code</code>        | Description de votre block **doit absolument être unique** | <code style="color:#7ec699">String</code> | <code>true</code>      |
 | <code>icon</code>        | Icon heroicons (v2) en format camelCase <br>ex: `academic-cap` => `AcademicCapIcon` <br> Liste disponible ici: [Heroicons](https://heroicons.com/)| <code style="color:#7ec699">String</code> | <code>false</code>      |
+| <code>icon_path</code>   | Url de votre icon personnalisé | <code style="color:#7ec699">String</code> | <code>false</code>      |
 | <code>nameFrom</code>        | Donner un nom custom à votre block<br>ex: `title` <br> Prendra le valeur du contenu du champs de configuration `title`| <code style="color:#7ec699">String</code> | <code>false</code>      |
 | <code>need_reload</code> | Rechargement de l'iframe après avoir sauvegardé un block, utile si vous développez un block de type slider par exemple <br> Default: `true`| <code style="color:#7ec699">Bool</code> | <code>false</code>       |
 | <code>insert_default_values</code> | Mets les valeurs des champs par défaut (les champs doivent avoir l'option `'force_default_value' => true,`) lors de l'insertion du block (afin d'avoir des données de démonstration) <br> Default: `false`| <code style="color:#7ec699">Bool</code> | <code>false</code>       |
