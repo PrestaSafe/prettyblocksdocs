@@ -15,7 +15,7 @@ Voici un exemple d'utilisation
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String`) |
 | <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
@@ -32,7 +32,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String` (color en héxadecimal)) |
 | <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
@@ -49,7 +49,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String`) |
 | <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
@@ -68,7 +68,7 @@ Afficher un colorpicker avec choix de couleur et / ou un champs pour mettre une 
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >path</code>  | Chemin d'upload du fichier, **Doit absolument commencer par `$`** <br> `$` équivaut à `_PS_ROOT_DIR_` <br> pour un chemin custom d'un module: `$/modules/module_name/views/images/`   |
 | <code >default</code>  | Image par défaut (type: `Array`)  |
@@ -93,7 +93,7 @@ Exemple pour rechercher un produit:
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >collection</code>  | `PrestaShopCollection` ou `ObjectModel`  <br>ex: `Product` / `Category` /  `CMS` (fonctionne avec tous les objects model)   |
 | <code >default</code>  | value par defaut (type: `Array`)  |
@@ -112,7 +112,7 @@ Exemple pour rechercher un produit:
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >default</code>  | Valeur par défault (type: `String`) |
 | <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
@@ -160,7 +160,7 @@ Return `String`
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >choices</code>  | Option possibles format: `['id' => 'value']` |
 | <code >default</code>  | Valeur par défault (type: `String`) |
@@ -188,8 +188,70 @@ Return `String`
 
 | Options            | Description  |                               
 | -----------       | -----------  |                                
-| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` | 
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
 | <code >label</code>  | Label à afficher |
 | <code >choices</code>  | Options possibles format: `['id' => 'value']` |
 | <code >default</code>  | Valeur par défault (type: `String`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
+
+## MultiSelect
+`multiselect` Vous permettra de créer un choix multiple sous forme de tag
+
+Return `String`
+
+```php 
+'choices' => [
+    'type' => 'multiselect', // type of field
+    'label' => 'Choose a value', // label to display
+    'default' => ['1','2'], // default value (Array)
+    'choices' => [
+        '1' => 'Select 1',
+        '2' => 'Select 2',
+        '3' => 'Select 3',
+        '4' => 'Select 4',
+        '5' => 'Select 5',
+    ],
+],
+
+```
+
+| Options            | Description  |                               
+| -----------       | -----------  |                                
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
+| <code >label</code>  | Label à afficher |
+| <code >choices</code>  | Options possibles format: `['id' => 'value']` |
+| <code >default</code>  | Valeur par défault (type: `Array`) |
+| <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |
+
+
+## Title
+`title` Vous permettra de créer un champs de type titre, qui sera compatible avec le [composant Title](/docs/components/#title)
+
+Return `void`
+
+```php 
+'title' => [
+    'type' => 'title',
+    'label' => 'Title',
+    'force_default_value' => true, // force default value
+    'default' => [
+        'tag' => 'h2',
+        'classes' => [],
+        'value' => "Default value",
+        'focus' => false,
+        'bold' => false,
+        'italic' => false,
+        'underline' => false,
+        'size' => 18,
+    ],
+],
+
+```
+
+| Options            | Description  |                               
+| -----------       | -----------  |                                
+| <code >type</code>  | Type du champs `text` / `color` / `textarea` / `fileupload` / `selector` / `editor` / `checkbox` / `radio_group` / `select` / `multiselect` / `title` |
+| <code >label</code>  | Label à afficher |
+| <code >choices</code>  | Options possibles format: `['id' => 'value']` |
+| <code >default</code>  | Valeur par défault (type: `Array`) |
 | <code >force_default_value</code>  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |

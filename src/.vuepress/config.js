@@ -122,6 +122,16 @@ module.exports = {
           ]
         }
       ],
+      '/docs/components/' : [
+        {
+          title: 'Components',
+          collapsable: true,
+          sidebarDepth: 3,
+          children: [
+            '',
+          ]
+        }
+      ],
       '/docs/contribute/' : [
         {
           title: 'Contribuer',
