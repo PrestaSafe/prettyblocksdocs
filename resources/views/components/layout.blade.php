@@ -27,19 +27,16 @@
 <x-banner />
 {{ $slot }}
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-{{-- <script type="text/javascript">
+<script type="text/javascript">
     docsearch({
-        appId: 'ZDW7UGKGMQ',
-        apiKey: 'ed9c6323ad82a4c7af6dc3a0e8a493c4',
-        indexName: 'docs_index',
-        insights: true,
+
+        appId: 'IOG2L1E15U',
+        apiKey: '0a6063fb666df0fba29a536e499485ba',
+        indexName: 'prettyblocks',
+        insights: true, // Optional, automatically send insights when user interacts with search results
         container: '#docsearch',
-        debug: true,
-        // level0: 'lvl0',
-        // level1: 'lvl1',
-        // level2: 'lvl2',
-        // level3: 'lvl3',
+        debug: false // Set debug to true if you want to inspect the modal
     });
-</script> --}}
+</script>
 </body>
 </html>
