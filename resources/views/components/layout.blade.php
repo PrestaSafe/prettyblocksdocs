@@ -27,15 +27,19 @@
 <x-banner />
 {{ $slot }}
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     docsearch({
         appId: 'ZDW7UGKGMQ',
         apiKey: 'ed9c6323ad82a4c7af6dc3a0e8a493c4',
         indexName: 'docs_index',
         insights: true,
         container: '#docsearch',
-        debug: true
+        debug: true,
+        // level0: 'lvl0',
+        // level1: 'lvl1',
+        // level2: 'lvl2',
+        // level3: 'lvl3',
     });
-</script>
+</script> --}}
 </body>
 </html>

@@ -33,18 +33,20 @@ class GenerateAlgoliaIndex extends Command
             $record = [
                 'objectID' => sprintf('%u', crc32($file->getRealPath())),
                 'url' => $url,
-                'content' => substr(strip_tags($content), 0, 8000), // Limite le contenu à 8000 caractères
-                'lvl1' => [] // Initialise lvl1 comme tableau vide
+                'content' => substr(strip_tags($content), 0, 8000) // Limite le contenu à 8000 caractères
             ];
 
+            $levels = [];
             foreach ($matches as $match) {
                 $level = 'lvl' . strlen($match[1]);
-                $record[$level][] = strip_tags($match[2]);
+                if (!isset($levels[$level])) {
+                    $levels[$level] = '';
+                }
+                $levels[$level] .= strip_tags($match[2]) . ' '; // Concatène les titres du même niveau
             }
 
-            // Assurez-vous qu'il y a toujours au moins un élément dans lvl1
-            if (empty($record['lvl1'])) {
-                $record['lvl1'][] = 'Titre par défaut'; // Remplacez ceci par un titre par défaut approprié
+            foreach ($levels as $level => $text) {
+                $record[$level] = trim($text);
             }
 
             if (strlen(json_encode($record)) <= 10000) {
