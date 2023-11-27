@@ -1,1 +1,0 @@
-export const data = JSON.parse("{\"key\":\"v-31fcd8b2\",\"path\":\"/src/docs/tpl/settings.html\",\"title\":\"Settings\",\"lang\":\"en-US\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"Helper\",\"slug\":\"helper\",\"link\":\"#helper\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"src/docs/tpl/settings.md\"}")

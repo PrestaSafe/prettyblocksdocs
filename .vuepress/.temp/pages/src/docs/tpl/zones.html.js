@@ -1,1 +1,0 @@
-export const data = JSON.parse("{\"key\":\"v-a9b758fe\",\"path\":\"/src/docs/tpl/zones.html\",\"title\":\"Zones\",\"lang\":\"en-US\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[{\"level\":2,\"title\":\"Créer une zone\",\"slug\":\"creer-une-zone\",\"link\":\"#creer-une-zone\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"src/docs/tpl/zones.md\"}")

@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.alert-warning {
+    color: white;
+    font-weight: bold;
+    background-color: #332701;
+    border: 1px solid #ffda6a;
+    border-radius: 0.25rem;
+    padding: 20px
+}
+
+[x-cloak] {
+    display: none;
+}
+.prose {
+    max-width: 95ch;
+}
+nav a {
+    @apply no-underline;
+}
+
+nav a:hover {
+    @apply text-gray-600;
+}
+
+nav ul {
+    @apply text-sm list-none;
+}
+
+nav ul li {
+    @apply font-bold;
+}
+
+nav ul li ul li {
+    @apply font-normal;
+    @apply my-3;
+}
+
+nav ul li ul {
+    @apply mb-6;
+    @apply pl-4;
+}
+
+.prose h1 {
+    @apply text-3xl;
+}
+
+.prose h2 {
+    @apply text-2xl;
+}
+
+.prose h3 {
+    @apply text-lg;
+}
+
+.prose h4 {
+    @apply text-base;
+}
+
+.prose pre  {
+    @apply p-6 shadow-lg rounded-xl;
+}
+
+.prose pre code {
+    @apply text-white;
+}
+
+.prose code {
+    @apply px-1;
+}
+
+.prose a {
+    @apply text-indigo-700;
+}
+
+.prose a:hover {
+    @apply text-indigo-600 no-underline;
+}
+
+.prose img {
+    @apply shadow-md rounded-xl;
+}
+
+.prose img.no-format {
+    @apply rounded-none shadow-none;
+}
+
+/*
+ Margin and rounding are personal preferences,
+ overflow-x-auto is recommended.
+*/
+.prose pre {
+    @apply p-0 my-4 overflow-x-auto bg-transparent rounded;
+}
+
+/*
+ Add some vertical padding and expand the width
+ to fill its container. The horizontal padding
+ comes at the line level so that background
+ colors extend edge to edge.
+*/
+.prose pre code.torchlight {
+    @apply block py-4 min-w-max;
+}
+
+/*
+ Horizontal line padding.
+*/
+.prose pre code.torchlight .line {
+    @apply px-4;
+}
+
+/*
+ Push the code away from the line numbers and
+ summary caret indicators.
+*/
+.prose pre code.torchlight .line-number,
+.prose pre code.torchlight .summary-caret {
+    @apply mr-4;
+}
+
+@media (max-width: 1024px) {
+    nav ul {
+        @apply text-base;
+    }
+    nav ul li ul {
+        @apply mb-0;
+        @apply pl-2;
+    }
+    nav ul li ul li {
+        @apply mb-4;
+    }
+    nav ul li ul li a {
+        @apply w-full;
+        @apply py-2;
+        @apply flex flex-1;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    nav a:hover {
+        @apply text-gray-300;
+    }
+
+    .prose a {
+        @apply text-indigo-300;
+    }
+
+    .prose a:hover {
+        @apply text-indigo-300 no-underline;
+    }
+}
+
+
+:root {
+    --docsearch-container-background: rgba(0, 0, 0, 0.5);
+    --docsearch-primary-color: #06b6d4;
+}
+
+[id=docsearch] {
+    width: 100%;
+    @apply md:w-auto;
+}
+
+.DocSearch-Button {
+    @apply border border-solid border-gray-400/50 dark:border-white/10 dark:bg-black/10 flex items-center w-full rounded;
+}
+.DocSearch-Button:hover {
+    box-shadow: none;
+    @apply text-gray-400 border-gray-400/70 bg-transparent dark:border-white/20;
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+    height: 0.87rem;
+    @apply text-gray-500 dark:text-white/60;
+}
+
+.DocSearch-Button-Placeholder {
+    @apply dark:text-white/60 pr-56 text-xs;
+}
+
+.DocSearch-Button-Keys {
+    display: flex;
+    min-width: auto;
+
+    @apply mt-1 text-xs leading-none;
+}
+
+.DocSearch-Button-Key {
+    background: none;
+    box-shadow: none;
+    width: auto;
+
+    @apply font-sans mr-0.5;
+}
+
+.DocSearch-Modal {
+    @apply text-black;
+}
+
+.DocSearch-Screen-Icon {
+    display: none;
+}
+
+.DocSearch-Input {
+    @apply focus-visible:outline-none;
+}
