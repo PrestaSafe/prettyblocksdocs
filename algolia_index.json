@@ -1,0 +1,222 @@
+[
+    {
+        "objectID": "986938058",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/tpl\/settings",
+        "content": "---\ntitle: Settings\norder: 3\n---\n# Settings\n\n\n\n\n  **Tous les paramètres que vous avez enregistrés dans votre thème peuvent être récupérés\navec notre helper front** \n\n\n\n## Helper\n\nEn PHP:\n\n```php \nTplSettings::getSettings('radio_group')\n```\n\nvia smarty \n\n```smarty \n{TplSettings::getSettings('radio_group')}\n```\n\nCes informations vous donneront accès aux valeurs des champs de type settings. \n\n```php\nreturn [\n    'settings_name' => [\n        'tab' => 'design',\n        'type' => 'color',\n        'default' => '#000000',\n        'label' => 'Change your color'\n    ],\n    \/\/ ...\n    'radio_group' => [\n        'tab' => 'TEST',\n        'type' => 'radio_group',\n        'label' => 'Choose a value', \n        'default' => '3',\n        'choices' => [\n            '1' => 'Radio 1',\n            '2' => 'Radio 2',\n            '3' => 'Radio 3',\n        ]\n    ],\n]\n```\n\nExemple: `{TplSettings::getSettings('radio_group')}` retournera `Radio 3` ou `Radio 1` si l'utlisateur a choisi la valeur `1`\n\n`{TplSettings::getSettings('settings_name')}` retournera `#000000` ou la valeur définie par l'utlisateur. \n",
+        "lvl1": [
+            "Settings"
+        ],
+        "lvl2": [
+            "Helper"
+        ]
+    },
+    {
+        "objectID": "318861171",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/tpl\/zones",
+        "content": "---\ntitle: Zones\norder: 2\n---\n# Zones\nTout comme les modules sont gréffés sur des hooks, les blocs seront placés sur des `Zones`\n\n\n  Une **zone** peut également être un **hook**. \nEn **greffant le module sur le hook** que vous souhaitez, ce dernier créera une zone qui aura le nom du hook. \n\n\nPlusieurs choix s'offrent à vous, le premier consiste à utiliser le widget du module: \n\n```smarty\n{widget name=\"prettyblocks\" zone_name=\"myCustomZone\"}\n```\n\nLe second consiste à utiliser un hook personnalisé puis de greffer le module dessus:\n\n```smarty\n{hook h=\"myCustomHook\" zone_name=\"myCustomZone\"}\n```\n\nLe dernier, consiste à utiliser le helper `PrettyBlockZone`\n\n```smarty\n{prettyblocks_zone zone_name=\"myCustomZone\"}\n\n```\n\n\n`{magic_zone}` est, depuis la version 1.1.0 dépréciée, veuillez utiliser `{prettyblocks_zone}`\n\n\n\n",
+        "lvl1": [
+            "Zones"
+        ]
+    },
+    {
+        "objectID": "755028039",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/tpl\/intro",
+        "content": "---\ntitle: Templating\norder: 1\n---\n\n# Templating\n\nLes templates utilisés sont des templates utilisant le moteur de template principal de PrestaShop: `Smarty`\n\nChaque template doit être enregistré en utilisant la nouvelle syntaxe de PrestaShop: \n\nExemple: `module:modulemodule\/views\/templates\/hook\/front.tpl`\n\n\n\n\n  **TOUS les templates peuvent être overridés par un thème parent ou enfant.** \n\n\n\n\n\nEx: pour un template localisé dans: `\/modules\/modulemodule\/views\/templates\/hook\/front.tpl` \nutlisant la syntaxe: `module:modulemodule\/views\/templates\/hook\/front.tpl`\n\nCe dernier peut être surclassé en le plaçant dans un thème: \n`\/themes\/montheme\/modules\/modulemodule\/views\/templates\/hook\/front.tpl`\n\n## Utiliser les données du bloc\n\n**PrettyBlocks** renvoie dans chaque block, une variable nommée: `$block`\n\n### Configuration\nToutes les données définies dans la section `config` peuvent être exploitées sous cette forme:\n\n`{$block.settings.{$nom_de_la_cle}}`\n\n```php \n\/\/ exemple\n'config' => [\n    'fields' => [\n        'title' => [\n            'type' => 'text', \/\/ type of field\n            'label' => 'Title', \/\/ label to display\n            'default' => 'Customer reviews' \/\/ default value \n        ],\n        'color' => [\n            'type' => 'color', \/\/ type of field\n            'label' => 'Choose a background color', \/\/ label to display\n            'default' => '#121212' \/\/ default value \n        ]\n],\n```\n\nPour récupérer `title` placez dans vos templates: `{$block.settings.title}`\n\nPour `color` => `{$block.settings.color}` etc... \n\n### Champs par défaut\n\nIl existe 2 champs par défaut que tous les blocks peuvent utiliser.\n\n`container` Utilisé pour placer dans un container ou non (à vous de l'utiliser de cette manière)\n\n```smarty\n     ... \n```\n\n`bg_color` pour utiliser un `background-color` \n```smarty\n     ... \n```\n\n### Champs répétables\n\nComme pour les champs de configuration, les champs répétables (`repeater`) sont également présents dans chaque block\nVous pouvez les utiliser avec cette variable: `{$block.states}`\n\n\n```php \n\/\/ exemple\n'repeater' => [\n    'name' => 'Element repeated',\n    'nameFrom' => 'title',\n    'groups' => [\n        'title' => [\n            'type' => 'text', \/\/ type of field\n            'label' => 'Title', \/\/ label to display\n            'default' => 'Customer reviews' \/\/ default value \n        ],\n        'color' => [\n            'type' => 'color', \/\/ type of field\n            'label' => 'Choose à background color', \/\/ label to display\n            'default' => '#121212' \/\/ default value \n        ]\n    ]\n]\n\n```\n\nExemple pour utiliser les éléments répétables dans ses templates. \n\n```smarty\n    {foreach from=$block.states item=$state}\n        {$state.title}\n        {$state.color}\n    {\/foreach}\n```\n",
+        "lvl1": [
+            "Templating"
+        ],
+        "lvl2": [
+            "Utiliser les données du bloc"
+        ],
+        "lvl3": [
+            "Configuration",
+            "Champs par défaut",
+            "Champs répétables"
+        ]
+    },
+    {
+        "objectID": "911199335",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/tpl\/_index",
+        "content": "---\ntitle: Templating\norder: 4\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "3930520022",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/components\/toolbar",
+        "content": "---\ntitle: Title\norder: 1\n---\n\n# Composants\n\nDepuis la version 2.1.0, PrettyBlocks possède un composant qui vous permet de mieux éditer votre balisage Hn\nafin de proposer une meilleure structure SEO à vos thèmes. \n\n## Utilisation \nDans un premier temps, enregistrez un champs de type `title` dans votre block: [Champs title](\/docs\/get-started\/fields-available.html#title)\n\nPlacez ensuite: \n`{prettyblocks_title block=$block field=\"title\"}`\n\ndans votre template. \n\n`$block` est le block parent (Obligatoire)\n`field` nom du champs à éditer (champs de type title obligatoire)\n\nVous pourrez par la suite éditer votre balisage hn depuis PrettyBlocks: \n\n\n\nLes choix suivants seront proposés: \n\n    h1\n    h2\n    h3\n    h4\n    h5\n    h6\n    span\n    p\n\n",
+        "lvl1": [
+            "Composants"
+        ],
+        "lvl2": [
+            "Utilisation "
+        ]
+    },
+    {
+        "objectID": "1210365013",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/components\/_index",
+        "content": "---\ntitle: Composants\norder: 5\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "3520210523",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/hooks\/intro",
+        "content": "---\ntitle: Hooks disponibles\norder: 1\n---\n\n# Hooks disponibles\nAfin d'étendre au mieux les fonctionnalités de **PrettyBlocks**, nous avons implémenté\ncertains hooks pour faciliter la vie des développeurs.\n\n## Register Hooks (ActionRegisterBlock)\n\nEn greffant votre module sur le hook **ActionRegisterBlock** vous pourrez simplement rajouter vos blocs. \n\n```php\npublic function hookActionRegisterBlock()\n{\n    $blocks = [];\n    $blocks[] = [\n        'name' => 'Fake block',\n        'description' => 'Description of your block',\n        'code' => 'fake_block', \/\/ required must be uniq\n        'icon' => 'StarIcon', \/\/ https:\/\/heroicons.com V2\n        'need_reload' => true, \/\/ reload iframe after save\n        'templates' => [\n            'default' =>  'module:'.$this->name.'\/views\/templates\/block\/default.tpl'\n        ],\n        'config' => [\n            'fields' => [\n                \/\/ ... array of fields\n            ]\n        ],\n        'repeater' => [\n            'name' => 'Element repeated',\n            'nameFrom' => 'field name',\n            'groups' => [\n                \/\/ ... array of fields\n            ]\n        ]\n\n    ]\n\n    return $blocks;\n}\n```\n\n## Register Settings (ActionRegisterThemeSettings)\n\nLe hook **ActionRegisterThemeSettings** vous permettra d'enregistrer des paramètres généraux pour votre thème. \nPour enregistrer des paramètres, vous devez retourner un tableau de [Champs](\/get-started\/fields-available) \nSeul le paramètre tab vous permettra d'ajouter votre paramètre dans un tab existant, ou de le créer si il n'existe pas. \nex: ` 'tab' => 'design' ` placera le paramètre dans un onglet `Design`\n```php\npublic function hookActionRegisterThemeSettings()\n{\n    return [\n        'settings_name' => [\n            'tab' => 'design',\n            'type' => 'color',\n            'default' => '#000000',\n            'label' => 'Change your color'\n        ],\n        'select' => [\n            'tab' => 'TEST',\n            'type' => 'select',\n            'label' => 'Select field', \n            \/\/ 'default' => '2',\n            'choices' => [\n                '1' => 'Value 1',\n                '2' => 'Value 2',\n                '3' => 'Value 3',\n            ]\n        ],\n        'radio_group' => [\n            'tab' => 'TEST',\n            'type' => 'radio_group',\n            'label' => 'Choose a value', \n            'default' => '3',\n            'choices' => [\n                '1' => 'Radio 1',\n                '2' => 'Radio 2',\n                '3' => 'Radio 3',\n            ]\n        ],\n        'settings_name_radio' => [\n            'tab' => 'design',\n            'type' => 'radio',\n            'default' => false,\n            'label' => 'Add this option'\n        ],\n        'settings_name_textarea' => [\n            'tab' => 'Custom tabs !',\n            'type' => 'textarea',\n            'default' => 'Hello you !',\n            'label' => 'type textarea'\n        ],\n        'new_logo' => [\n            'tab' => 'design',\n            'type' => 'fileupload',\n            'label' => 'File upload',\n            'path' => '$\/fakemodule\/views\/images\/test\/',\n            'default' => [\n                ['url' => 'https:\/\/via.placeholder.com\/141x180'],\n            ],\n        ]\n    ];\n}\n```\n\n\n## Extend block (beforeRendering{BlockCode})\n\nAfin d'étendre les données de votre block, vous pouvez rajouter des données via ce hook: \nExemple pour un block aillant pour code: `block_category_products`\nun hook est exécuté avec le code du block en camelCase:  `hookbeforeRenderingblockCategoryProducts`\n\nVous pouvez utiliser toutes les données de votre bloc dans le `$params['block']`\n```php \n public function hookbeforeRenderingClassicFeaturedProduct($params)\n    {\n        $settings = $params['block']['settings'];\n\n        if($settings)\n        {\n            if(isset($settings['category']['id']))\n            {\n                $id_category = (int)$settings['category']['id'];\n                return ['products' => $this->getProducts($id_category)];\n            }\n        }\n        return ['products' => false];\n\n    }\n\n```\n\nToutes les clés retournées pourront être utilisées dans la variable `$block.extra` sur le front office. \nRésulat de notre exemple: `$block.extra.products` retournera un tableau de produits. \n\n\n## Extends Templates (actionExtendBlockTemplate{BlockCode})\n\nPourquoi devoir refaire un bloc ou un module afin de modifier un simple affichage ? \nUn module peut rajouter un ou plusieurs templates en fonction d'un bloc. \n\nComme pour l'exemple précédent, pour un bloc aillant le code `block_category_products`\nvous pouvez rajouter un ou plusieurs templates pour ce dernier: \n\n```php\n public function hookactionExtendBlockTemplateBlockCategoryProducts($params)\n{\n    return [\n        'override1' => 'module:'.$this->name.'\/views\/templates\/blocks\/template1.tpl',\n        'override2' => 'module:'.$this->name.'\/views\/templates\/blocks\/template2.tpl',\n    ];\n}\n```\n\n## SASS compilation (ActionQueueSassCompile)\n\nPrettyblocks vous mâche votre travail de développeur, grâce à ce hook, vous pouvez\ncompiler vos styles SASS ou CSS.  \nNotre helper utilise la librairie [scssphp](https:\/\/scssphp.github.io\/scssphp\/)\n\n(depuis la version 3.0.0), le profil en cours (données de la table `prettyblocks_settings`) \nest accessible depuis les paramètres du hook `ActionQueueSassCompile`\n\nVoici un exemple: \n\n```php\n public function hookActionQueueSassCompile($params)\n    {\n        $id_shop = (int)$params['id_shop'];\n        $profile = $params['profile'];\n        $vars = [\n            'import_path' => [\n                '$\/themes\/classic\/_dev\/css\/'\n            ],\n            'entries' => [\n                '$\/modules\/'.$this->name.'\/views\/css\/vars.scss'\n            ],\n            'out' => '$\/themes\/classic\/_dev\/css\/helpers\/_custom_vars.scss'\n        ];\n\n        $theme = [\n            'import_path' => [\n                '$\/themes\/classic\/_dev\/css\/'\n            ],\n            'entries' => [\n                '$\/themes\/classic\/_dev\/css\/theme.scss'\n            ],\n            'out' => '$\/themes\/classic\/assets\/css\/theme.css'\n        ];\n\n\n        return [$vars, $theme];\n    }\n```\n\nAfin de mieux l'exploiter, vous pouvez simplement utiliser les `Themes settings` dans un fichier `scss` ou `css` et **Prettyblocks** se charge du reste. \nIl n'est donc pas nécessaire de compiler avec NPM ou yarn, cela dit, pour les plus fan de ces technologies, \nvous pouvez utiliser ces outils sans perturber le fonctionnement du builder :) \n`import_path`: ajoute un chemin d'import (CF lib [scssphp](https:\/\/scssphp.github.io\/scssphp\/))\n`entries`: les fichiers à mettre en entrée (pas de limite de nombre)\n`out`: le fichier qui sera compilé en sortie\n\nEx: avec la variable `$sass`\n\n```php\n\n    $vars = [\n        'import_path' => [\n            '$\/themes\/classic\/_dev\/css\/'\n        ],\n        'entries' => [\n            '$\/modules\/'.$this->name.'\/views\/css\/vars.scss'\n        ],\n        'out' => '$\/themes\/classic\/_dev\/css\/helpers\/_custom_vars.scss'\n    ];\n\n```\nContenu du fichier `'$\/modules\/'.$this->name.'\/views\/css\/vars.scss'` \n\n```scss\n    $gray-900:  $SETTINGS_bg_dark !default;\n    $icon-color-top-bar: $SETTINGS_icon_top_bar_color !default;\n    $primary: $SETTINGS_primary_color !default;\n\n```\n\nFichier compilé par **PrettyBlocks** `$\/themes\/classic\/_dev\/css\/helpers\/_custom_vars.scss`\n\n```scss\n    $gray-900:  #373f50 !default;\n    $icon-color-top-bar: #fe696a !default;\n    $primary: #fe696a !default;\n```\n\n`$SETTINGS_bg_dark` a pris la valeur du `Theme Settings` qui a pour nom `bg_dark`\nil est obligatoire d'utiliser `$SETTINGS_` + `{nom_du_settings}` afin de faire matcher la valeur. \n",
+        "lvl1": [
+            "Hooks disponibles"
+        ],
+        "lvl2": [
+            "Register Hooks (ActionRegisterBlock)",
+            "Register Settings (ActionRegisterThemeSettings)",
+            "Extend block (beforeRendering{BlockCode})",
+            "Extends Templates (actionExtendBlockTemplate{BlockCode})",
+            "SASS compilation (ActionQueueSassCompile)"
+        ]
+    },
+    {
+        "objectID": "582107870",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/hooks\/_index",
+        "content": "---\ntitle: Hooks\norder: 2\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "2269622735",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/contribute\/intro",
+        "content": "---\ntitle: Contribuer\norder: 1\n---\n# Compiler PrettyBlocks\n\nSi vous le souhaitez, vous pouvez nous aider à rendre l'expérience utilisateur encore plus enrichissante. \nVous pouvez compiler et étendre les fonctionnalités de **PrettyBlocks** \n\nCe dernier utilise les technologies suivantes: \n\n- Vue 3 \n- Tailwind CSS\n- ViteJS (bundler)\n\nRendez vous dans le dossier `_dev` du module **PrettyBlocks** \n\npuis installez les dépendances: \n`npm install`\n\nLancer ensuite le serveur de développement\n\n`npm run dev`\n\nEt enfin, pour utiliser le `HMR` (hot module reload)\n\nModifiez la vue: `modules\/prettyblocks\/views\/templates\/admin\/index.html.twig`\n\net placez la variable `{% set vitedev = false %}`\n\nà `true`\n\n`{% set vitedev = true %}`\n\nSi le serveur vous renvoie une autre adresse que  `http:\/\/localhost:3002`\n\nRemplacer cette url dans les lignes suivantes par l'url du serveur de développement:\n@verbatim\n```twig\n{% if vitedev %}\n     \n{% endif %}\n\n{% if vitedev %}\n    \n{% endif %}\n```\n@endverbatim\nEnfin, une fois vos modifications terminées lancez un:\n\n`npm run build` \npuis repassez la variable `vitedev` à false `{% set vitedev = false %}`\n\nVous pouvez nous faire une pull request et nous serons ravis d'échanger à ce sujet :) \n\n",
+        "lvl1": [
+            "Compiler PrettyBlocks"
+        ]
+    },
+    {
+        "objectID": "3582361620",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/contribute\/_index",
+        "content": "---\ntitle: Contribuer\norder: 5\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "1352263701",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/tips\/index",
+        "content": "---\ntitle: Custom page\norder: 1\n---\n\n# Custom page\n\nPrettyBlocks peut être utilisé n'importe où sur votre thème. \nSi vous souhaitez avoir des page CMS avec des blocks custom c'est possible ! \n\nExemple dans votre fichier: `\/themes\/classic\/templates\/cms\/page.tpl`\n\nAjoutez:  \n\n```smarty\n{block name='cms_content'}\n    {$cms.content nofilter}\n    {prettyblocks_zone zone_name=\"cms|{$cms.id}\"}\n{\/block}\n```\n\nRendez vous ensuite sur une page CMS depuis PrettyBlocks et vous pourrez apercevoir dans la liste des zones\nque votre zone `cms|{id_cms}` est bien présente. \n\nCette astuce fonctionne pour toutes les pages. \n\n\n\n",
+        "lvl1": [
+            "Custom page"
+        ]
+    },
+    {
+        "objectID": "412778744",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/tips\/_index",
+        "content": "---\ntitle: Tips\norder: 6\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "3591855091",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/helper\/intro",
+        "content": "---\ntitle: HelperBuilder \norder: 1\n---\n\n# Helper\n\nNotre classe `HelperBuilder` vous permettra de gagner du temps dans vos développements: \n\n## HelperBuilder::pathFormattedFromString\n\nVous permet de retourner un chemin \"formaté\" en chemin absolue ex: \n\n`HelperBuilder::pathFormattedFromString('$\/modules\/prettyblocks\/views\/images\/')` vous retournera: \n`\/path\/to\/prestashop\/modules\/prettyblocks\/views\/images\/`\n\n## HelperBuilder::pathFormattedFromUrl\n\nVous permet de retourner un chemin absolue depuis une url ex: \n\n`HelperBuilder::pathFormattedFromUrl('https:\/\/your_shop.com\/modules\/prettyblocks\/views\/images\/')`\nvous retournera :\n`\/path\/to\/prestashop\/modules\/prettyblocks\/views\/images\/`\n\n## HelperBuilder::pathFormattedToUrl\n\nRetourne un `path` en url ex:\n`HelperBuilder::pathFormattedToUrl('$\/modules\/prettyblocks\/views\/images\/')`\nvous retournera :\n`https:\/\/your_shop.com\/modules\/prettyblocks\/views\/images\/`\n\n\n## HelperBuilder::renderBlocks \n\nRetourne le rendu d'un ou plusieurs blocks (voir  [créer votre premier blocks](\/docs\/get-started\/create-a-block.md))\n\n```php\n return HelperBuilder::renderBlocks(\n     [\n         new MyCustomBlock($this)  \n            \/\/ new MySecondCustomBlock($this)  \n        ]\n    );\n```\n\n## HelperBuilder::getRandomCategory\nRetourne un tableau d'une catégorie aléatoire formatée pour des champs de type `selector`.\nTrès utile pour l'insertion de vos blocks qui ont des champs de catégories à remplir ex: \n\n```php\n  'config' => [\n      'fields' => [\n          \/\/ ...\n            'category' => [\n                'type' => 'selector',\n                'label' => $this->module->l('Category'),\n                'collection' => 'Category',\n                'force_default_value' => true,\n                'default' => \\HelperBuilder::getRandomCategory($this->context->language->id, $this->context->shop->id),\n                'selector' => '{id} - {name}',\n            ],\n            \/\/ ... \n        ],\n    ],\n```\n## HelperBuilder::getRandomProduct\nidem que `getRandomCategory` afin d'avoir un produit de manière aléatoire\n\n## HelperBuilder::getRandomCMS\nidem que `getRandomCategory` afin d'avoir une page CMS de manière aléatoire\n",
+        "lvl1": [
+            "Helper"
+        ],
+        "lvl2": [
+            "HelperBuilder::pathFormattedFromString",
+            "HelperBuilder::pathFormattedFromUrl",
+            "HelperBuilder::pathFormattedToUrl",
+            "HelperBuilder::renderBlocks ",
+            "HelperBuilder::getRandomCategory",
+            "HelperBuilder::getRandomProduct",
+            "HelperBuilder::getRandomCMS"
+        ]
+    },
+    {
+        "objectID": "4206406777",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/helper\/_index",
+        "content": "---\ntitle: Helpers\norder: 3\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "46952727",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/get-started\/create-a-block",
+        "content": "---\ntitle: Créer un block PrettyBlocks\norder: 2\n---\n# Créer votre premier block\n\n## Concept  \n\nUn module peut enregistrer **plusieurs blocks**\nVous trouverez en exemple notre module **classicblocks** qui reprend les 4 modules PrestaShop essentiels:\n- Slider\n- Bannière\n- Text personnalisé\n- Produits phares\n\n[=> Github des classicblocks ](https:\/\/github.com\/PrestaSafe\/classicblocks)\n\n\n### Module  \n\nVoici la structure classique d'un module.\n\n```php\n\nuse PrestaShop\\PrestaShop\\Core\\Module\\WidgetInterface;\nclass FakeModule extends Module implements WidgetInterface\n{\n    public function __construct()\n    {\n        $this->name = 'fakemodule';\n        $this->tab = 'administration';\n        $this->version = '1.0.0';\n        $this->author = 'PrestaSafe';\n        $this->need_instance = 1;\n\n        $this->bootstrap = true;\n        parent::__construct();\n\n        $this->displayName = $this->l('Fake module');\n        $this->description = $this->l('Fake module');\n        \n        $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);\n    }\n\n    public function install()\n    {\n        return parent::install() && $this->registerHook('ActionRegisterBlock');\n    }\n\n    public function uninstall()\n    {\n        return parent::uninstall() && $this->unregisterHook('ActionRegisterBlock');\n    }\n    \n    \/\/ Register blocks here.\n    public function hookActionRegisterBlock()\n    {\n        $blocks = [];\n        $blocks[] = [\n            'name' => 'Fake block',\n            'description' => 'Description of your block',\n            'code' => 'fake_block', \/\/ required must be uniq\n            'icon' => 'StarIcon', \/\/ https:\/\/heroicons.com V2\n            'icon_path' => 'https:\/\/yoursite.com\/img\/icon.png', \/\/ custom icon\n            'need_reload' => true, \/\/ reload iframe after save\n            'nameFrom' => 'field_name', \/\/ take the name of a config field\n            'templates' => [\n                'default' =>  'module:'.$this->name.'\/views\/templates\/block\/default.tpl'\n            ],\n            'config' => [\n                'fields' => [\n                    \/\/ ... array of fields\n                ]\n            ],\n            'repeater' => [\n                'name' => 'Element repeated',\n                'nameFrom' => 'field name',\n                'groups' => [\n                    \/\/ ... array of fields\n                ]\n            ]\n\n        ];\n\n        return $blocks;\n    }\n\n}\n```\n\nDepuis la version `2.0.0` vous pouvez utiliser notre inferface fournie afin d'avoir une structure plus lisible: \nVeuillez tout d'abord créer une classe pour votre block: \n\n```php\nuse PrestaSafe\\PrettyBlocks\\Core\\Interface\\BlockInterface;\n\nclass MyCustomBlock implements BlockInterface\n{\n    private $module;\n    \n    public function __construct($module)\n    {\n        $this->module = $module;\n    }\n\n\n    public function registerBlocks(): array\n    {\n        return  \n        [\n            'name' => $this->module->l('Fake block'),\n            'description' => $this->module->l('Description of your block'),\n            'code' => 'fake_block', \/\/ required must be uniq\n            'icon' => 'StarIcon', \/\/ https:\/\/heroicons.com V2\n            'icon_path' => 'https:\/\/yoursite.com\/img\/icon.png', \/\/ custom icon\n            'need_reload' => true, \/\/ reload iframe after save\n            'nameFrom' => 'field_name', \/\/ take the name of a config field\n            'insert_default_values' => true, \/\/ new since 2.0.0 \n            'templates' => [\n                'default' =>  'module:'.$this->name.'\/views\/templates\/block\/default.tpl'\n            ],\n            'config' => [\n                'fields' => [\n                    \/\/ ... array of fields\n                ]\n            ],\n            'repeater' => [\n                'name' => $this->module->l('Element repeated'),\n                'nameFrom' => $this->module->l('field name'),\n                'groups' => [\n                    \/\/ ... array of fields\n                ]\n            ]\n        ];\n    }\n}\n```\n\nPuis dans votre module, sur le hook `ActionRegisterBlock` enregistrez votre block comme ceci: \n\n```php\npublic function hookActionRegisterBlock()\n{\n\n    return HelperBuilder::renderBlocks(\n        [\n            new MyCustomBlock($this)  \n            \/\/ new MySecondCustomBlock($this)  \n        ]\n    );\n}\n```\n\nLe hook **ActionRegisterBlock** est prévu pour enregistrer un ou plusieurs block(s) dans le **Prettyblocks**.\nVous pouvez utiliser les 2 exemples pour enregistrer vos blocks.\nSi vous utilisez l'interface fournie, pensez bien à faire en sorte que composer charge vos classes de blocks automatiquement comme ceci: \n```\n{\n    \"name\": \"company\/your_module\",\n    \"description\": \"your description\",\n    \"license\": \"AFL-3.0\",\n    \"keywords\": [\n      \"prestashop\",\n    ],\n    \"authors\": [\n      {\n        \"name\": \"Authors\",\n        \"homepage\": \"https:\/\/....\"\n      }\n    ],\n    \"config\": {\n      \"preferred-install\": \"dist\",\n      \"prepend-autoloader\": false\n    },\n    \"autoload\": {\n      \"classmap\": [\n        \"classes\/blocks\"\n      ],\n      \"exclude-from-classmap\": []\n    },\n    \"type\": \"prestashop-module\"\n  }\n```\ndans cet exemple, nos blocks sont dans le dossier `classes\/blocks` de notre module \nfaites ensuite un `composer dump-autoload` dans votre dossier de module.\nSi vos blocks ne sont pas chargés, n'oubliez pas d'ajouter l'autoload dans votre module\n```php\nuse PrestaShop\\PrestaShop\\Core\\Module\\WidgetInterface;\nif (file_exists(__DIR__ . '\/vendor\/autoload.php')) {\n    require_once __DIR__ . '\/vendor\/autoload.php';\n}\nclass FakeModule extends Module implements WidgetInterface\n{\n    \/\/ ... \n```\n\n## Détails d'un block\n\n| Champs            | Description                                      | Type     | Required    |\n| -----------       | -----------                                      | -------- | ----------- |        \n| name        | Nom d'affichage de votre block                   | String | true      |\n| description | Description de votre block                        | String | true      |\n| code        | Description de votre block **doit absolument être unique** | String | true      |\n| icon        | Icon heroicons (v2) en format camelCase ex: `academic-cap` => `AcademicCapIcon`  Liste disponible ici: [Heroicons](https:\/\/heroicons.com\/)| String | false      |\n| icon_path   | Url de votre icon personnalisé | String | false      |\n| nameFrom        | Donner un nom custom à votre blockex: `title`  Prendra le valeur du contenu du champs de configuration `title`| String | false      |\n| need_reload | Rechargement de l'iframe après avoir sauvegardé un block, utile si vous développez un block de type slider par exemple  Default: `true`| Bool | false       |\n| insert_default_values | Mets les valeurs des champs par défaut (les champs doivent avoir l'option `'force_default_value' => true,`) lors de l'insertion du block (afin d'avoir des données de démonstration)  Default: `false`| Bool | false       |\n| templates   | Templates de votre block, **il est impératif d'avoir un template avec la clé `default`**  Vous pouvez enregistrer autant de templates que vous souhaitez | Array | true      |\n| config      | Champs de configuration de votre block  **Doit avoir un tableau de champs `'fields' => [ \/*... fields ...*\/ ]`**  voir [Champs disponibles](#champs-disponibles)  | Array | false   |\n| repeater      | Champs répétables  Plus de détails ci-dessous [Champs répétable](#champs-repetables) | Array | false   |\n\n## Champs répétables\nLes champs répétables vous permettront de mettre autant de données que l'utilisateur le souhaite. \nPlusieurs paramètres sont requis. \n\n\n| Champs            | Description                                      | Type     | Required    |\n| -----------       | -----------                                      | -------- | ----------- |        \n| name        | Nom par défaut des éléments listés | String | true  |\n| nameFrom        | Prend le nom de la valeur du champs répété  ex: `'nameFrom' => 'title'` affichera ",
+        "lvl1": [
+            "Créer votre premier block"
+        ],
+        "lvl2": [
+            "Concept  ",
+            "Détails d'un block",
+            "Champs répétables"
+        ],
+        "lvl3": [
+            "Module  "
+        ]
+    },
+    {
+        "objectID": "1825494790",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/get-started\/intro",
+        "content": "---\ntitle: Introduction \norder: 001\n---\n# Prettyblocks\n\nPrettyblocks est un tout nouveau système de création de contenu de type \"Blocks\" conçu spécifiquement pour [**PrestaShop**](https:\/\/www.prestashop-project.org). Ce système est également appelé **Page builder**. \n\nCe dernier est compatible **PrestaShop 1.7, 8.0.X et fonctionne avec tous les thèmes** :) \n\n\n \n\nCette documentation est orientée développeur et à pour but de montrer comment exploiter PrettyBlocks. \n\n## Concept\n\nEn partant du constat que, dans PrestaShop, un module ne peut être greffé qu'une seule fois sur un hook, nous avons décidé de développer un système de type Page Builder\nafin de simplifier la vie des marchands et des développeurs en créant un système et à la fois innovant et relativement simple d'utilisation: **PrettyBlocks** est né. \n\nGrâce à ce dernier, vous allez pouvoir créer des 'blocks' puis les placer sur des **zones**.\n\nCes zones peuvent être des Hooks ou non, vous pourrez également les placer où bon vous semble dans vos thèmes :) \n\n## Télécharger le module\n\nDans un premier temps, nous vous invitons à télécharger le module ici [PrettyBlocks en dernière version Stable](https:\/\/github.com\/PrestaSafe\/prettyblocks\/releases\/latest)\n\n## Installer depuis GitHub\n\n```bash\ncd modules\ngit clone https:\/\/github.com\/PrestaSafe\/prettyblocks.git\ncd prettyblocks\ncomposer install #or composer install --no-dev if you have issues\ncd _dev\nnpm install && npm run build\ncd ..\/..\/..\/ && php bin\/console prestashop:module install prettyblocks\n```\n",
+        "lvl1": [
+            "Prettyblocks"
+        ],
+        "lvl2": [
+            "Concept",
+            "Télécharger le module",
+            "Installer depuis GitHub"
+        ]
+    },
+    {
+        "objectID": "461076344",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/get-started\/using-vue",
+        "content": "# Using Vue in Markdown\n\n## Browser API Access Restrictions\n\nBecause VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the [universal code requirements](https:\/\/ssr.vuejs.org\/en\/universal.html). In short, make sure to only access Browser \/ DOM APIs in `beforeMount` or `mounted` hooks.\n\nIf you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in `` component:\n\n##\n",
+        "lvl1": [
+            "Using Vue in Markdown"
+        ],
+        "lvl2": [
+            "Browser API Access Restrictions",
+            ""
+        ]
+    },
+    {
+        "objectID": "936735590",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/get-started\/_index",
+        "content": "---\ntitle: Get started\norder: 1\n---\n",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    },
+    {
+        "objectID": "2581112154",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/get-started\/fields-available",
+        "content": "---\ntitle: Champs disponibles\norder: 3\n---\n\n# Champs disponibles\n\nQue ce soit dans la section `config` ou `repeater` \nles champs utilisés restent les mêmes. \nVoici un exemple d'utilisation\n\n## Text\n```php\n'title' => [\n    'type' => 'text', \/\/ type of field\n    'label' => 'Title', \/\/ label to display\n    'default' => 'Customer reviews' \/\/ default value \n]\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| default  | Valeur par défault (type: `String`) |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## Color\nAfficher un colorpicker avec choix de couleur et \/ ou un champs pour mettre une couleur custom.\n\n```php \n'color' => [\n    'type' => 'color', \/\/ type of field\n    'label' => 'Background color', \/\/ label to display\n    'default' => '#121212' \/\/ default value \n]\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| default  | Valeur par défault (type: `String` (color en héxadecimal)) |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n\n## Textarea\n\n```php  \n'description' => [\n    'type' => 'textarea', \/\/ type of field\n    'label' => 'Title', \/\/ label to display\n    'default' => 'Customer reviews' \/\/ default value \n]\n```\n\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| default  | Valeur par défault (type: `String`) |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## Fileupload\n\n```php \n'upload' => [\n    'type' => 'fileupload', \/\/ type of field\n    'label' => 'File upload', \/\/ label to display\n    'path' => '$\/cz_gallery\/imgs\/', \/\/ path to upload\n    'default' => [ \/\/ default value\n        ['url' => 'https:\/\/via.placeholder.com\/100x100'],\n    ],\n]\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| path  | Chemin d'upload du fichier, **Doit absolument commencer par `$`**  `$` équivaut à `_PS_ROOT_DIR_`  pour un chemin custom d'un module: `$\/modules\/module_name\/views\/images\/`   |\n| default  | Image par défaut (type: `Array`)  |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## Selector\n`Selector` Vous permettra de créer un champs de recherche en fonction d'une `PrestaShopCollection` ou `ObjectModel`\n\nReturn `ObjectPresenter`\n\nExemple pour rechercher un produit: \n```php \n'product' => [\n    'type' => 'selector', \/\/ type of field\n    'label' => 'Choose a product', \/\/ label to display\n    'collection' => 'Product', \/\/ Collection to cearch\n    'default' => 'default value', \/\/ default value\n    'selector' => '{id} - {name}' \/\/ will be replaced by Object Attribute and will be used for search results\n]\n\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| collection  | `PrestaShopCollection` ou `ObjectModel`  ex: `Product` \/ `Category` \/  `CMS` (fonctionne avec tous les objects model)   |\n| default  | value par defaut (type: `Array`)  |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## Editor\n`Editor` Vous permettra de créer un champs de type `TinyMce`\n```php \n'text' => [\n    'type' => 'editor', \/\/ type of field\n    'label' => 'Editor', \/\/ label to display\n    'default' => 'Hello World !' \/\/ default HTML value\n]\n\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| default  | Valeur par défault (type: `String`) |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## Checkbox\n`checkbox` Vous permettra de créer un champs de type ``\nIdéal pour certaines configurations. \n\nReturn `Bool`\n\n```php \n'show' => [\n    'type' => 'checkbox', \/\/ type of field\n    'label' => 'Use custom image', \/\/ label to display\n    'default' => false \/\/ default value (Boolean)\n]\n\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select`   | \n| label  | Label à afficher |\n| default  | Valeur par défault (type: `Boolean`)  Default: `false` |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## Radio Group\n`radio_group` Vous permettra de créer un choix sous forme de  ``\n\nReturn `String`\n\n```php \n'radio_group' => [\n    'type' => 'radio_group', \/\/ type of field\n    'label' => 'Choose a value',  \/\/ label to display\n    'default' => '3', \/\/ default value (String)\n    'choices' => [\n        '1' => 'Radio 1',\n        '2' => 'Radio 2',\n        '3' => 'Radio 3',\n    ]\n],\n\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| choices  | Option possibles format: `['id' => 'value']` |\n| default  | Valeur par défault (type: `String`) |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n\n## Select\n`select` Vous permettra de créer un choix sous forme de  ``\n\nReturn `String`\n\n```php \n'choices' => [\n    'type' => 'select', \/\/ type of field\n    'label' => 'Choose a value', \/\/ label to display\n    'default' => '3', \/\/ default value (String)\n    'choices' => [\n        '1' => 'Radio 1',\n        '2' => 'Radio 2',\n        '3' => 'Radio 3',\n    ]\n],\n\n```\n\n| Options            | Description  |                               \n| -----------       | -----------  |                                \n| type  | Type du champs `text` \/ `color` \/ `textarea` \/ `fileupload` \/ `selector` \/ `editor` \/ `checkbox` \/ `radio_group` \/ `select` \/ `multiselect` \/ `title` |\n| label  | Label à afficher |\n| choices  | Options possibles format: `['id' => 'value']` |\n| default  | Valeur par défault (type: `String`) |\n| force_default_value  | Autorise à placer la valeur par défaut lors de l'insertion du bloc sur une zone (type: `Bool`) |\n\n## MultiSelect\n`multi",
+        "lvl1": [
+            "Champs disponibles"
+        ],
+        "lvl2": [
+            "Text",
+            "Color",
+            "Textarea",
+            "Fileupload",
+            "Selector",
+            "Editor",
+            "Checkbox",
+            "Radio Group",
+            "Select",
+            "MultiSelect",
+            "Title"
+        ]
+    },
+    {
+        "objectID": "2010318121",
+        "url": "https:\/\/prettyblocks.io\/docs\/3\/_index",
+        "content": "",
+        "lvl1": [
+            "Titre par défaut"
+        ]
+    }
+]
