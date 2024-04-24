@@ -92,7 +92,7 @@ Depuis la version `2.0.0` vous pouvez utiliser notre inferface fournie afin d'av
 Veuillez tout d'abord créer une classe pour votre block: 
 
 ```php
-use PrestaSafe\PrettyBlocks\Core\Interface\BlockInterface;
+use PrestaSafe\PrettyBlocks\Interfaces\BlockInterface;
 
 class MyCustomBlock implements BlockInterface
 {
@@ -117,7 +117,7 @@ class MyCustomBlock implements BlockInterface
             'nameFrom' => 'field_name', // take the name of a config field
             'insert_default_values' => true, // new since 2.0.0 
             'templates' => [
-                'default' =>  'module:'.$this->name.'/views/templates/block/default.tpl'
+                'default' =>  'module:'.$this->module->name.'/views/templates/block/default.tpl'
             ],
             'config' => [
                 'fields' => [
